@@ -10,8 +10,8 @@ rm -rf "$tmp_folder"
 mkdir -p "$tmp_folder"
 cd "$tmp_folder" || { echo "Error with $tmp_folder"; exit 1; }
 
-git clone "$disko_link" . || { echo "Ошибка при клонировании репозитория"; exit 1; }
-curl -sSL "$disko_nix_link" -o disko.nix || { echo "Ошибка при загрузке disko.nix"; exit 1; }
+git clone "$disko_link" . || { echo "Error clone REPO disko_link"; exit 1; }
+curl -sSL "$disko_nix_link" -o disko.nix || { echo "Error load disko.nix"; exit 1; }
 
 nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko.nix
 
