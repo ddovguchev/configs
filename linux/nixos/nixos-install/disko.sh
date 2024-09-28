@@ -4,7 +4,7 @@
 
 tmp_folder="/tmp/nixos"
 disko_link="https://github.com/nix-community/disko.git"
-disko_nix_link="https://raw.githubusercontent.com/ddovguchev/configs/master/linux/nixos/disko/disko.nix"
+disko_nix_link="https://raw.githubusercontent.com/ddovguchev/configs/master/linux/nixos/nixos-install/disko.nix"
 
 rm -rf "$tmp_folder"
 mkdir -p "$tmp_folder"
