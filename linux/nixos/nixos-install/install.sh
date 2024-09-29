@@ -23,8 +23,8 @@ curl -sSL "$disko_nix_link" -o disko.nix || { echo "Error load disko.nix"; exit 
 
 nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko.nix
 
-nixos-generate-config --root /mnt
-
-echo "root:$root_password" | chpasswd --root /mnt
-
-nixos-install
+#nixos-generate-config --root /mnt
+#
+#echo "root:$root_password" | chpasswd --root /mnt
+#
+#nixos-install
