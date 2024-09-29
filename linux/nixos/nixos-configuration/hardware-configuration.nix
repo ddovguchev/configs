@@ -8,7 +8,7 @@ in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    "${nixosHardware}/apple/t2"
+#    "${nixosHardware}/apple/t2"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
