@@ -8,7 +8,7 @@ in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-#    "${nixosHardware}/apple/t2"
+    "${nixosHardware}/apple/t2"
   ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
@@ -17,18 +17,18 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/53fdeb3d-adce-4437-947d-535ee7b8cec6";
+    device = "/dev/disk/by-uuid/81d4ba4e-5ac8-4ba4-a047-da810bab0455";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0EEC-38BC";
+    device = "/dev/disk/by-uuid/BD09-C251";
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/96a7054a-75e0-4f2c-946a-90bc1f656895"; }
+    { device = "/dev/disk/by-uuid/321a370e-0181-461c-bcf0-cc9e55ae12f0"; }
   ];
 
   networking.useDHCP = lib.mkDefault true;

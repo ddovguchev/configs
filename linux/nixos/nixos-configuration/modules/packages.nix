@@ -19,7 +19,6 @@
     gparted
     obsidian
     pcmanfm-qt
-    polymc
 
     # Coding stuff
     gnumake
