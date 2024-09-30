@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
+    "${modulesPath}/installer/scan/not-detected.nix"
     "${nixosHardware}/apple/t2"
   ];
 
