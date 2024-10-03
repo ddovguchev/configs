@@ -3,7 +3,6 @@
 {
   imports = [
     ./modules/bundel.nix
-    ./hardware-configuration.nix
   ];
 
   networking.hostName = "nixos";

@@ -4,6 +4,5 @@
     ./user.nix
     ./packages.nix
     ./network-rules.nix
-    ./hyprland.nix
   ];
 }
