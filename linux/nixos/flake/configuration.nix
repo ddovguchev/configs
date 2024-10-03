@@ -5,6 +5,8 @@
     ./modules/bundel.nix
   ];
 
+  programs.hyprland.enable = true;
+
   networking.hostName = "nixos";
   time.timeZone = "Europe/Minsk";
   i18n.defaultLocale = "en_US.UTF-8";

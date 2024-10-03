@@ -1,22 +1,39 @@
 {
-  description = "My NixOS configuration with T2 support";
+  description = "Hika";
 
   inputs = {
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    polymc.url = "github:PolyMC/PolyMC";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }:
-  let
-    system = "x86_64-linux";
-  in {
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+
+    let
+      system = "x86_64-linux";
+    in {
+
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
+      specialArgs = {
+        pkgs-stable = import nixpkgs-stable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        inherit inputs system;
+      };
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
