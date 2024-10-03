@@ -2,7 +2,6 @@
   description = "Hika";
 
   inputs = {
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -20,24 +19,23 @@
     polymc.url = "github:PolyMC/PolyMC";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, ... }@inputs:
 
-    let
-      system = "x86_64-linux";
-    in {
-
+  let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
         pkgs-stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
         };
-        inherit inputs system;
+        inherit inputs system nixos-hardware;  # Передача nixos-hardware в конфигурацию
       };
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
-        nixos-hardware.nixosModules.apple-t2
+        inputs.nixos-hardware.nixosModules.apple-t2  # Использование nixos-hardware
       ];
     };
 
