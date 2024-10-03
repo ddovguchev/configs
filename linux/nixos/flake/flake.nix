@@ -6,16 +6,17 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     home-manager = {
-      url = "nix-community/home-manager";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }:
+  let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
