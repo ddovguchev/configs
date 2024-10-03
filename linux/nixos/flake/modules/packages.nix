@@ -19,6 +19,7 @@
     gparted
     obsidian
     pcmanfm-qt
+    dmg2img
 
     # Coding stuff
     gnumake
@@ -28,6 +29,7 @@
     (python3.withPackages (ps: with ps; [ requests ]))
 
     # CLI utils
+    vim
     neofetch
     file
     tree
