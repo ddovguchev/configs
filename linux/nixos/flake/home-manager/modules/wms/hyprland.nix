@@ -4,10 +4,9 @@
     xwayland.enable = true;
 
     settings = {
-      "$mainMod" = "SUPER"; # Основной модификатор (обычно клавиша Windows или Command на Mac)
+      "$mainMod" = "SUPER";
 
-      # Параметры экрана (обновите разрешение и частоту при необходимости)
-      monitor = ",3072x1920@60,auto,1";  # Разрешение для 16-дюймового MacBook Pro
+      monitor = ",3072x1920@60,auto,1";
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
