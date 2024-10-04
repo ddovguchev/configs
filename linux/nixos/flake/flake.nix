@@ -30,12 +30,12 @@
           inherit system;
           config.allowUnfree = true;
         };
-        inherit inputs system nixos-hardware;  # Передача nixos-hardware в конфигурацию
+        inherit inputs system nixos-hardware;
       };
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
-        inputs.nixos-hardware.nixosModules.apple-t2  # Использование nixos-hardware
+        inputs.nixos-hardware.nixosModules.apple-t2
       ];
     };
 
