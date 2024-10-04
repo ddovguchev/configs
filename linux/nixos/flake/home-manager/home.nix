@@ -1,6 +1,6 @@
 {
   imports = [
-#    ./zsh.nix
+    ./zsh.nix
     ./modules/bundle.nix
   ];
 
