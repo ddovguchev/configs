@@ -4,9 +4,10 @@
     xwayland.enable = true;
 
     settings = {
-      "$mainMod" = "SUPER";
+      "$mainMod" = "SUPER"; # Основной модификатор (обычно клавиша Windows или Command на Mac)
 
-#      monitor = ",1920x1080@90,auto,1";
+      # Параметры экрана (обновите разрешение и частоту при необходимости)
+      monitor = ",3072x1920@60,auto,1";  # Разрешение для 16-дюймового MacBook Pro
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -30,10 +31,10 @@
         follow_mouse = 1;
 
         touchpad = {
-          natural_scroll = true;
+          natural_scroll = true;  # Естественная прокрутка для MacBook
         };
 
-        sensitivity = 0;
+        sensitivity = 0.5;  # Скорректированная чувствительность
       };
 
       general = {
@@ -68,7 +69,6 @@
         enabled = true;
 
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        # bezier = "myBezier, 0.33, 0.82, 0.9, -0.08";
 
         animation = [
           "windows,     1, 7,  myBezier"
@@ -81,8 +81,8 @@
       };
 
       dwindle = {
-        pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-        preserve_split = true; # you probably want this
+        pseudotile = true;
+        preserve_split = true;
       };
 
       master = {
@@ -120,7 +120,6 @@
 
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-
         "$mainMod, Return, exec, alacritty"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
@@ -129,26 +128,18 @@
         "$mainMod, D, exec, wofi --show drun"
         "$mainMod, P, pseudo, # dwindle"
         "$mainMod, J, togglesplit, # dwindle"
-
-        # Move focus with mainMod + arrow keys
         "$mainMod, left,  movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up,    movefocus, u"
         "$mainMod, down,  movefocus, d"
-
-        # Moving windows
         "$mainMod SHIFT, left,  swapwindow, l"
         "$mainMod SHIFT, right, swapwindow, r"
         "$mainMod SHIFT, up,    swapwindow, u"
         "$mainMod SHIFT, down,  swapwindow, d"
-
-        # Window resizing                     X  Y
         "$mainMod CTRL, left,  resizeactive, -60 0"
         "$mainMod CTRL, right, resizeactive,  60 0"
         "$mainMod CTRL, up,    resizeactive,  0 -60"
         "$mainMod CTRL, down,  resizeactive,  0  60"
-
-        # Switch workspaces with mainMod + [0-9]
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -159,8 +150,6 @@
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
-
-        # Move active window to a workspace with mainMod + SHIFT + [0-9]
         "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
         "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
         "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
@@ -171,41 +160,21 @@
         "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
         "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
         "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
-
-        # Scroll through existing workspaces with mainMod + scroll
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
-
-        # Keyboard backlight
         "$mainMod, F3, exec, brightnessctl -d *::kbd_backlight set +33%"
         "$mainMod, F2, exec, brightnessctl -d *::kbd_backlight set 33%-"
-
-        # Volume and Media Control
         ", XF86AudioRaiseVolume, exec, pamixer -i 5 "
         ", XF86AudioLowerVolume, exec, pamixer -d 5 "
         ", XF86AudioMute, exec, pamixer -t"
         ", XF86AudioMicMute, exec, pamixer --default-source -m"
-
-        # Brightness control
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- "
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% "
-
-        # Configuration files
-        ''$mainMod SHIFT, N, exec, alacritty -e sh -c "rb"''
-        ''$mainMod SHIFT, C, exec, alacritty -e sh -c "conf"''
-        ''$mainMod SHIFT, H, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/hyprland.nix"''
-        ''$mainMod SHIFT, W, exec, alacritty -e sh -c "nvim ~/nix/home-manager/modules/wms/waybar.nix''
-        '', Print, exec, grim -g "$(slurp)" - | swappy -f -''
-
-        # Waybar
         "$mainMod, B, exec, pkill -SIGUSR1 waybar"
         "$mainMod, W, exec, pkill -SIGUSR2 waybar"
-
-        # Disable all effects
         "$mainMod Shift, G, exec, ~/.config/hypr/gamemode.sh "
       ];
 
-      # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
