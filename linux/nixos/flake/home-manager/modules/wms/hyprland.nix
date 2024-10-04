@@ -6,7 +6,7 @@
     settings = {
       "$mainMod" = "SUPER";
 
-      monitor = ",1920x1080@90,auto,1";
+#      monitor = ",1920x1080@90,auto,1";
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -30,10 +30,10 @@
         follow_mouse = 1;
 
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
 
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0;
       };
 
       general = {
