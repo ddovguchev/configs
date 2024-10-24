@@ -44,7 +44,6 @@
       modules = [ ./home-manager/home.nix ];
     };
 
-    # Обеспечьте, что активируемая конфигурация присутствует
     packages.x86_64-linux.homeConfigurations = {
       hika = {
         activationPackage = home-manager.lib.homeManagerActivationPackage {
