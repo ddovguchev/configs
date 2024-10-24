@@ -39,9 +39,26 @@
       ];
     };
 
-    homeConfigurations.amper = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.hika = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [ ./home-manager/home.nix ];
+    };
+
+    # Обеспечьте, что активируемая конфигурация присутствует
+    packages.x86_64-linux.homeConfigurations = {
+      hika = {
+        activationPackage = home-manager.lib.homeManagerActivationPackage {
+          inherit (self.homeConfigurations.hika) pkgs;
+        };
+      };
+    };
+
+    legacyPackages.x86_64-linux.homeConfigurations = {
+      hika = {
+        activationPackage = home-manager.lib.homeManagerActivationPackage {
+          inherit (self.homeConfigurations.hika) pkgs;
+        };
+      };
     };
   };
 }
