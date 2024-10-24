@@ -45,18 +45,16 @@
     };
 
     packages.x86_64-linux.homeConfigurations = {
-      hika = {
-        activationPackage = home-manager.lib.homeManagerActivationPackage {
-          inherit (self.homeConfigurations.hika) pkgs;
-        };
+      hika = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [ ./home-manager/home.nix ];
       };
     };
 
     legacyPackages.x86_64-linux.homeConfigurations = {
-      hika = {
-        activationPackage = home-manager.lib.homeManagerActivationPackage {
-          inherit (self.homeConfigurations.hika) pkgs;
-        };
+      hika = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [ ./home-manager/home.nix ];
       };
     };
   };
