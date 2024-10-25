@@ -110,7 +110,7 @@
 
       exec-once = [
         "swww init"
-        "swww img ~/Pictures/wallpaper.jpg"  # Установка картинки рабочего стола
+        "swww img /home/hika/Pictures/wallppaper.jpg"  # Установка картинки рабочего стола
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
