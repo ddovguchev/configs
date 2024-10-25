@@ -19,6 +19,7 @@
       pkgs = "nvim ${flakeDir}/nixos/packages.nix";
 
       ll = "ls -l";
+      ping = "echo 'pong'";
       v = "nvim";
       se = "sudoedit";
       ff = "fastfetch";
