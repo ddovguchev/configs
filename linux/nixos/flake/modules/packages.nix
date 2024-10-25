@@ -64,7 +64,6 @@
     screenkey
     mako
     gromit-mpx
-    idea-ultimate
 
     # Xorg stuff
     #xterm
