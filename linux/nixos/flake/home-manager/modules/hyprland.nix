@@ -2,6 +2,7 @@
 
 {
   home.packages = [
+    pkgs.waybar
     pkgs.hyprland
   ];
 
@@ -48,6 +49,7 @@
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
         no_cursor_warps = false;
+        scale = 1.5;  # Установка масштаба интерфейса на 150%
       };
 
       decoration = {
@@ -85,10 +87,6 @@
         preserve_split = true;
       };
 
-      master = {
-        new_is_master = true;
-      };
-
       gestures = {
         workspace_swipe = true;
         workspace_swipe_fingers = 3;
@@ -112,7 +110,7 @@
 
       exec-once = [
         "swww init"
-        "swww img ~/Downloads/nixos-chan.png"
+        "swww img ~/Pictures/wallpaper.jpg"
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
