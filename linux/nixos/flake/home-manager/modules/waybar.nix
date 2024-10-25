@@ -8,8 +8,7 @@
   programs.waybar = {
     enable = true;
 
-    # Основная конфигурация Waybar
-    config = ''
+    extraConfig = ''
       {
         "layer": "top",
         "position": "top",
