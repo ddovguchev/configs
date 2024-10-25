@@ -44,7 +44,7 @@
       modules = [ ./home-manager/home.nix ];
     };
 
-    packages.x86_64-linux.homeConfigurations = {
+     packages.x86_64-linux.homeConfigurations = {
       hika = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         modules = [ ./home-manager/home.nix ];

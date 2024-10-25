@@ -90,7 +90,6 @@
 
     # GPU stuff
     amdvlk
-#    rocm-opencl-icd
     glaxnimate
 
     # Screenshotting
