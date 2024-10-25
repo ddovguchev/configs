@@ -8,7 +8,7 @@
   programs.waybar = {
     enable = true;
 
-    extraConfig = ''
+    config = ''
       {
         "layer": "top",
         "position": "top",
@@ -30,7 +30,6 @@
       }
     '';
 
-    # Стили для Waybar
     style = ''
       #panel {
           background-color: #1a1b26;
