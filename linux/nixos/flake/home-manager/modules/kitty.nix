@@ -52,6 +52,6 @@ in
 
   programs.kitty = {
     enable = true;
-    config = kittyConfig;
+    extraConfig = kittyConfig;
   };
 }
