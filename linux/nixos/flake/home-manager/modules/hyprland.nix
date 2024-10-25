@@ -12,7 +12,7 @@
 
     settings = {
       "$mainMod" = "SUPER";
-      monitor = "eDP-1,3072x1920@60,auto,1";
+      monitor = "eDP-1,3072x1920@60,auto,1";  # Используйте ваш ID монитора
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -38,7 +38,7 @@
           natural_scroll = false;
         };
 
-        sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0;  # -1.0 - 1.0, 0 means no modification.
       };
 
       general = {
@@ -83,7 +83,7 @@
       };
 
       dwindle = {
-        pseudotile = true; # master switch for pseudotiling
+        pseudotile = true;  # master switch for pseudotiling
         preserve_split = true;
       };
 
@@ -110,7 +110,7 @@
 
       exec-once = [
         "swww init"
-        "swww img ~/Pictures/wallpaper.jpg"
+        "swww img ~/Pictures/wallpaper.jpg"  # Установка картинки рабочего стола
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
