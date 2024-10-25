@@ -1,7 +1,7 @@
 {
   programs.git = {
     enable = true;
-    userName  = "Dzmitry Douhushau";
-    userEmail = "dzmitry.douhushau@softnetix.io";
+    userName  = "ddovguchev";
+    userEmail = "ddovguchev@gmail.com";
   };
 }
