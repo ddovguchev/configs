@@ -64,6 +64,7 @@
     screenkey
     mako
     gromit-mpx
+    intellij
 
     # Xorg stuff
     #xterm
