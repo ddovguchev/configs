@@ -2,6 +2,6 @@
   imports = [
     ./git.nix
     ./kitty.nix
-#    ./waybar.nix
+    ./hyprland.nix
   ];
 }
