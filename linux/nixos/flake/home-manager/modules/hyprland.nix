@@ -120,9 +120,8 @@
 
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-        "$mainMod, Return, exec, alacritty"
-        "$mainMod, Q, killactive,"
         "$mainMod, T, exec, kitty"
+        "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, dolphin"
         "$mainMod, F, togglefloating,"
