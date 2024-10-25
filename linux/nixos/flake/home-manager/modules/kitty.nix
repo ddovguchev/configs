@@ -3,7 +3,7 @@
 let
   kittyConfig = ''
     font_family      JetBrains Mono
-    font_size 12.0
+    font_size        12.0
 
     scrollback_lines 2000
 
