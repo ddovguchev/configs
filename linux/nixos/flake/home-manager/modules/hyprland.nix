@@ -38,7 +38,7 @@
           natural_scroll = false;
         };
 
-        sensitivity = 0;  # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0;
       };
 
       general = {
@@ -49,7 +49,7 @@
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
         no_cursor_warps = false;
-        scale = 1.5;  # Установка масштаба интерфейса на 150%
+        scale = 2;
       };
 
       decoration = {
@@ -117,7 +117,7 @@
       ];
 
       bind = [
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | wofdi --dmenu | cliphist decode | wl-copy"
         "$mainMod, T, exec, kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
