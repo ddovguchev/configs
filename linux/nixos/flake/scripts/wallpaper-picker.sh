@@ -9,7 +9,7 @@ if [ ${#WALLPAPERS[@]} -eq 0 ]; then
   exit 1
 fi
 
-SELECTED_WALLPAPER=$(printf "%s\n" "${WALLPAPERS[@]}" | wofi --dmenu --title "Select Wallpaper" --width 300 --height 500)
+SELECTED_WALLPAPER=$(printf "%s\n" "${WALLPAPERS[@]}" | wofi --dmenu --width 300 --height 500)
 
 if [[ -n "$SELECTED_WALLPAPER" ]]; then
   swww img "$SELECTED_WALLPAPER"
