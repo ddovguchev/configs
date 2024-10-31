@@ -7,7 +7,7 @@
   environment.systemPackages = with pkgs; [
     # Desktop apps
     audacity
-    firefox
+    firefox-wayland
     telegram-desktop
     kitty
     obs-studio
