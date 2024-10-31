@@ -5,6 +5,5 @@
     ./packages.nix
     ./network-rules.nix
     ./virtmanager.nix
-    ./bin/bundle.nix
   ];
 }
