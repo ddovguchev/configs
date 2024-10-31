@@ -11,7 +11,7 @@
     telegram-desktop
     kitty
     obs-studio
-    rofi
+    rofi-wayland
     wofi
     mpv
     kdenlive
@@ -20,8 +20,9 @@
     obsidian
     pcmanfm-qt
     dmg2img
-
+    
     # Coding stuff
+    neovim
     gnumake
     gcc
     nodejs
