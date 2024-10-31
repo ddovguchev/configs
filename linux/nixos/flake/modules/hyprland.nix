@@ -16,7 +16,7 @@
     description = "swww daemon";
     wantedBy = [ "default.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.swww}/bin/swww";
+      ExecStart = "/run/current-system/sw/bin/swww";
     };
   };
 
