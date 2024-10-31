@@ -15,9 +15,10 @@
         name = "eDP-1";
         resolution = "3072x1920";
         position = "0x0";
-        scale = 2; # Коэффициент масштабирования
+        scale = 1.5;
       }
     ];
+
 
     settings = {
       "$mainMod" = "SUPER";
