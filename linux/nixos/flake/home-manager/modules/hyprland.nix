@@ -10,11 +10,20 @@
     enable = true;
     xwayland.enable = true;
 
+    monitors = [
+      {
+        name = "eDP-1";
+        resolution = "3072x1920";
+        position = "0x0";
+        scale = 2; # Коэффициент масштабирования
+      }
+    ];
+
     settings = {
       "$mainMod" = "SUPER";
       monitor = "eDP-1,3072x1920@60,auto,1";
 
-      scale = 2;
+
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
