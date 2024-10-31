@@ -2,7 +2,7 @@
 
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
-WALLPAPERS=("$WALLPAPER_DIR"/*.{jpg,jpeg,png})
+WALLPAPERS=("$WALLPAPER_DIR"/*.{jpg,jpeg,png,webp})
 
 if [ ${#WALLPAPERS[@]} -eq 0 ]; then
   echo "No wallpapers found in $WALLPAPER_DIR"
