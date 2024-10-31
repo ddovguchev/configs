@@ -8,6 +8,7 @@
     # Desktop apps
     audacity
     chromium
+    firefox
     telegram-desktop
     kitty
     obs-studio
