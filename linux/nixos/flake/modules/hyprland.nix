@@ -8,7 +8,7 @@
   programs.hyprland.enable = true;
 
   # Устанавливаем Hyprland в качестве менеджера сеансов по умолчанию
-  services.xserver.displayManager.defaultSession = "Hyprland";
+  services.xserver.displayManager.defaultSession = "hyprland";
 
 
   systemd.user.services.swww-daemon = {
