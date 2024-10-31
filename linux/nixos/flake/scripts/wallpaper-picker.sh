@@ -2,7 +2,10 @@
 
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
-WALLPAPERS=("$WALLPAPER_DIR"/*.{jpg,jpeg,png,webp})
+WALLPAPERS=()
+for ext in jpg jpeg png webp; do
+  WALLPAPERS+=("$WALLPAPER_DIR"/*.$ext)
+done
 
 if [ ${#WALLPAPERS[@]} -eq 0 ]; then
   echo "No wallpapers found in $WALLPAPER_DIR"
