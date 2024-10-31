@@ -11,11 +11,14 @@
   services.xserver.displayManager.defaultSession = "hyprland";
 
 
-  systemd.user.services.swww-daemon = {
+  systemd.services.swww-daemon = {
     description = "swww daemon";
-    wantedBy = [ "default.target" ];
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+
     serviceConfig = {
-      ExecStart = "${pkgs.swww}/bin/swww-daemon";
+      ExecStart = "${pkgs.swww}/bin/swww daemon";
+      Restart = "always";
     };
   };
 }
