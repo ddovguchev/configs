@@ -1,7 +1,6 @@
 {
   imports = [
     ./modules/bundle.nix
-    ./bin/bundle.nix
   ];
 
   home = {
