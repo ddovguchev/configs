@@ -48,8 +48,6 @@
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
         layout = "dwindle";
-        no_cursor_warps = false;
-        scale = 2;
       };
 
       decoration = {
@@ -83,7 +81,7 @@
       };
 
       dwindle = {
-        pseudotile = true;  # master switch for pseudotiling
+        pseudotile = true;
         preserve_split = true;
       };
 
@@ -110,7 +108,7 @@
 
       exec-once = [
         "swww init"
-        "swww img /home/hika/Pictures/wallppaper.jpg"  # Установка картинки рабочего стола
+        "swww img /home/hika/Pictures/wallppaper.jpg"
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
