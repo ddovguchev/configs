@@ -3,5 +3,6 @@
     ./git.nix
     ./kitty.nix
     ./hyprland.nix
+    ./rofi
   ];
 }
