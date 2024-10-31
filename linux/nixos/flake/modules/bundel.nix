@@ -5,5 +5,6 @@
     ./packages.nix
     ./network-rules.nix
     ./virtmanager.nix
+    ./hyprland.nix
   ];
 }
