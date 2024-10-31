@@ -4,7 +4,9 @@ WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 
 WALLPAPERS=()
 for ext in jpg jpeg png webp; do
-  WALLPAPERS+=("$WALLPAPER_DIR"/*.$ext)
+  while IFS= read -r file; do
+    WALLPAPERS+=("$file")
+  done < <(find "$WALLPAPER_DIR" -type f -iname "*.$ext")
 done
 
 if [ ${#WALLPAPERS[@]} -eq 0 ]; then
@@ -12,7 +14,7 @@ if [ ${#WALLPAPERS[@]} -eq 0 ]; then
   exit 1
 fi
 
-SELECTED_WALLPAPER=$(printf "%s\n" "${WALLPAPERS[@]}" | wofi --dmenu --width 300 --height 500)
+SELECTED_WALLPAPER=$(printf "%s\n" "${WALLPAPERS[@]}" | wofi --dmenu --width 500 --height 500)
 
 if [[ -n "$SELECTED_WALLPAPER" ]]; then
   swww img "$SELECTED_WALLPAPER"
