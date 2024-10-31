@@ -12,7 +12,7 @@
 
     settings = {
       "$mainMod" = "SUPER";
-      monitor = "eDP-1,3072x1920@60,auto,1";  # Используйте ваш ID монитора
+      monitor = "eDP-1,3072x1920@60,auto,1";
 
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
