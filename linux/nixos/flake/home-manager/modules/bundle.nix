@@ -4,6 +4,5 @@
     ./kitty.nix
     ./hyprland.nix
     ./zsh.nix
-    ./waybar.nix
   ];
 }
