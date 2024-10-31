@@ -1,12 +1,11 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-
   # Включаем поддержку X11
   services.xserver.enable = true;
 
   # Включаем Hyprland как оконный менеджер
-  services.xserver.windowManager.hyprland.enable = true;
+  programs.hyprland.enable = true;
 
   # Устанавливаем Hyprland в качестве менеджера сеансов по умолчанию
   services.xserver.displayManager.defaultSession = "Hyprland";
@@ -16,15 +15,7 @@
     description = "swww daemon";
     wantedBy = [ "default.target" ];
     serviceConfig = {
-      ExecStart = "/run/current-system/sw/bin/swww";
+      ExecStart = "${pkgs.swww}/bin/swww-daemon";
     };
   };
-
-#  systemd.user.services.hyperland-daemon = {
-#    description = "Hyperland daemon";
-#    wantedBy = [ "default.target" ];
-#    serviceConfig = {
-#      ExecStart = "${pkgs.swww}/bin/Hyperland";
-#    };
-#  };
 }
