@@ -107,6 +107,7 @@
         "$mainMod, V, exec, cliphist list | wofdi --dmenu | cliphist decode | wl-copy"
         "$mainMod, T, exec, kitty"
         "$mainMod, Q, killactive,"
+        "$mainMod, P, exec, select_wallpaper"
         "$mainMod, M, exit,"
         "$mainMod, E, exec, dolphin"
         "$mainMod, F, togglefloating,"
