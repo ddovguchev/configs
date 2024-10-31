@@ -14,6 +14,8 @@
       "$mainMod" = "SUPER";
       monitor = "eDP-1,3072x1920@60,auto,1";
 
+      scale = 2;
+
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
@@ -100,19 +102,6 @@
         render_ahead_of_time = false;
         disable_hyprland_logo = true;
       };
-
-      windowrule = [
-        "float, ^(imv)$"
-        "float, ^(mpv)$"
-      ];
-
-      exec-once = [
-        "swww init"
-        "swww img /home/hika/Pictures/wallppaper.jpg"
-        "waybar"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-      ];
 
       bind = [
         "$mainMod, V, exec, cliphist list | wofdi --dmenu | cliphist decode | wl-copy"
