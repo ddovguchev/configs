@@ -10,19 +10,9 @@
     enable = true;
     xwayland.enable = true;
 
-    monitors = [
-      {
-        name = "eDP-1";
-        resolution = "3072x1920";
-        position = "0x0";
-        scale = 1.5;
-      }
-    ];
-
-
     settings = {
       "$mainMod" = "SUPER";
-      monitor = "eDP-1,3072x1920@60,auto,1";
+      monitor = "eDP-1,3072x1920@60,auto,2";
 
 
 
