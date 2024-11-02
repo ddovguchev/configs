@@ -72,6 +72,7 @@
     #xorg.xbacklight
 
     # Wayland stuff
+    wayland
     xwayland
     wl-clipboard
     cliphist
@@ -79,6 +80,8 @@
     # WMs and stuff
     herbstluftwm
     hyprland
+    swaybg
+
     seatd
     xdg-desktop-portal-hyprland
     polybar
