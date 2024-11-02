@@ -76,6 +76,7 @@
     xwayland
     wl-clipboard
     cliphist
+    swaylock
 
     # WMs and stuff
     herbstluftwm
