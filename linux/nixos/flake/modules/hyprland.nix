@@ -6,5 +6,5 @@
   services.displayManager.sddm.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
-  hyprland.enable = true;
+  Hyprland.enable = true;
 }
