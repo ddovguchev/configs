@@ -5,6 +5,8 @@
 
   #  programs.hyprland.enable = true;
   services.xserver.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
-  services.xserver.displayManager.startx.enable = false;
+  services.xserver.displayManager.lightdm.enable = true; # или sddm.enable = true;
+  services.xserver.windowManager.hyprland.enable = true;
+
+  services.displayManager.defaultSession = "hyprland";
 }
