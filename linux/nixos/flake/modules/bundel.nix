@@ -5,7 +5,7 @@
     ./packages.nix
     ./network-rules.nix
     ./bluetooth.nix
-#    ./virtmanager.nix
-#    ./hyprland.nix
+    ./virtmanager.nix
+    ./hyprland.nix
   ];
 }
