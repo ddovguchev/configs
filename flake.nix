@@ -43,7 +43,7 @@
     in {
       packages = nixpkgs.legacyPackages.${system};
       overlays.default = selfPkgs.overlay;
-      nixosConfigurations.oxygen = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.oxygen = nb.nixosSystem {
         specialArgs = { inherit inputs self user; };
         modules = [
          ./hosts/oxygen
