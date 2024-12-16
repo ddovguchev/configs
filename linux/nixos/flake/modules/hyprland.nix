@@ -11,7 +11,7 @@
         enable = true;
         wayland.enable = true;
       };
-      defaultSession = "hyprland";
+      defaultSession = "Hyprland";
     };
 
     pipewire = {
@@ -29,4 +29,9 @@
   environment.systemPackages = with pkgs; [
     vulkan-tools
   ];
+
+  services.displayManager.sddm.environment = {
+    "XDG_SESSION_TYPE" = "wayland";
+    "XDG_CURRENT_DESKTOP" = "Hyprland";
+  };
 }
