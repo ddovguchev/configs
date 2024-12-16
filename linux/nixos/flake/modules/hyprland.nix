@@ -4,8 +4,12 @@
   programs.hyprland.enable = true;
 
   services.xserver.enable = false;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
   services.displayManager.defaultSession = "hyprland";
 
   services.pipewire = {
@@ -14,10 +18,12 @@
     pulse.enable = true;
   };
 
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [ vulkan-tools ];
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [ vulkan-tools ];
+  };
 
-  systemd.services.sddm.environment = {
+  systemd.services.display-manager.environment = {
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
   };
