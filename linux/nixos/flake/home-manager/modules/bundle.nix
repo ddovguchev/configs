@@ -4,6 +4,6 @@
     ./kitty.nix
     ./hyprland.nix
     ./zsh.nix
-    ./rofi/default.nix
+#    ./rofi/default.nix
   ];
 }

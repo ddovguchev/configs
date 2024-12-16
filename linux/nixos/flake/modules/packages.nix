@@ -72,8 +72,6 @@
     #xorg.xbacklight
 
     # Wayland stuff
-    wayland
-    xwayland
     wl-clipboard
     cliphist
     swaylock
