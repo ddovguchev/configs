@@ -7,6 +7,9 @@
     nh.url = "github:viperML/nh";
     nur.url = "github:nix-community/NUR";
     hosts.url = "github:StevenBlack/hosts";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     disko = {
       url = "github:nix-community/disko";
@@ -42,7 +45,10 @@
       overlays.default = selfPkgs.overlay;
       nixosConfigurations.oxygen = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs self user; };
-        modules = [ ./hosts/oxygen ];
+        modules = [
+         ./hosts/oxygen
+         inputs.nixos-hardware.nixosModules.apple-t2
+         ];
       };
     };
 }
