@@ -86,6 +86,11 @@
     polybar
     waybar
 
+
+    libinput
+    vulkan-tools
+    xdg-desktop-portal
+
     # Sound
     pipewire
     pulseaudio
