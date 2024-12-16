@@ -14,4 +14,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "24.11";
+
+  systemd.services.display-manager.after = [ "systemd-udev-settle.service" "graphical.target" ];
 }
