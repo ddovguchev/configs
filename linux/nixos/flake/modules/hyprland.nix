@@ -3,35 +3,22 @@
 {
   programs.hyprland.enable = true;
 
-  services = {
-    xserver.enable = false;
+  services.xserver.enable = false;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.defaultSession = "hyprland";
 
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-      defaultSession = "Hyprland";
-    };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      pulse.enable = true;
-    };
-  };
-
-  hardware.opengl = {
+  services.pipewire = {
     enable = true;
-    extraPackages = with pkgs; [ vulkan-tools ];
+    alsa.enable = true;
+    pulse.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    vulkan-tools
-  ];
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [ vulkan-tools ];
 
-  services.displayManager.sddm.environment = {
-    "XDG_SESSION_TYPE" = "wayland";
-    "XDG_CURRENT_DESKTOP" = "Hyprland";
+  systemd.services.sddm.environment = {
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
   };
 }
