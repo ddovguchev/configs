@@ -21,14 +21,18 @@
 
   let
     system = "x86_64-linux";
+    pkgs-stable = import nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    homeConfiguration = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      modules = [ ./home-manager/home.nix ];
+    };
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        pkgs-stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        inherit inputs system nixos-hardware;
+        inherit pkgs-stable inputs system nixos-hardware;
       };
       modules = [
         ./configuration.nix
@@ -37,23 +41,14 @@
       ];
     };
 
-    homeConfigurations.hika = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./home-manager/home.nix ];
-    };
+    homeConfigurations.hika = homeConfiguration;
 
-     packages.x86_64-linux.homeConfigurations = {
-      hika = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home-manager/home.nix ];
-      };
+    packages.x86_64-linux.homeConfigurations = {
+      hika = homeConfiguration;
     };
 
     legacyPackages.x86_64-linux.homeConfigurations = {
-      hika = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        modules = [ ./home-manager/home.nix ];
-      };
+      hika = homeConfiguration;
     };
   };
 }
