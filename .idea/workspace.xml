@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin" />
+    <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
+      <change beforePath="$PROJECT_DIR$/darwin/darwin-configuration.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/darwin-configuration.nix" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,6 +121,15 @@
       <workItem from="1742159990712" duration="2939000" />
       <workItem from="1742163131658" duration="392000" />
     </task>
+    <task id="LOCAL-00001" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1742164635055</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742164635055</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
