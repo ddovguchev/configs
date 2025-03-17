@@ -38,11 +38,11 @@
     enable = true;
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
-    brews = [ "mas" "nvm" ];
+    brews = [ "mas" "nvm" "goenv" ];
     casks = [
       "hammerspoon" "notion" "iina" "arc" "chatgpt" "intellij-idea" "telegram"
       "discord" "firefox" "visual-studio-code" "spotify" "gns3" "virtualbox"
-      "altserver" "sony-ps-remote-play" "goenv"
+      "altserver" "sony-ps-remote-play"
     ];
   };
 
