@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   programs.home-manager.enable = true;
 
   home.username = "dmitriy";
@@ -15,8 +10,9 @@
   programs = {
     tmux = import ./home-manager/tmux.nix { inherit pkgs; };
     zsh = import ./home-manager/zsh.nix { inherit config pkgs lib; };
-    zoxide = (import ./home-manager/zoxide.nix { inherit config pkgs; });
+    zoxide = import ./home-manager/zoxide.nix { inherit config pkgs; };
     fzf = import ./home-manager/fzf.nix { inherit pkgs; };
     oh-my-posh = import ./home-manager/oh-my-posh.nix { inherit pkgs; };
+#    git = import ./home-manager/git.nix;
   };
 }
