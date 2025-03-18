@@ -4,7 +4,7 @@
 
   environment.systemPackages = with pkgs; [
     # Базовые системные утилиты
-    coreutils curl unzip zip wget tree eza
+    coreutils curl unzip zip wget tree eza jq
 
     # Разработка
     git neovim zsh fzf htop ripgrep fd bat lua-language-server mkalias nil templ tmux zoxide ranger pyenv
@@ -19,7 +19,7 @@
     wireguard-tools wireguard-go iperf rclone pass awscli
 
     # CI/CD и инфраструктура
-    act air
+    act air argocd
 
     # Мультимедиа и графика
     ffmpeg spicetify-cli
