@@ -3,7 +3,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.systemPackages = with pkgs; [
-    # Базовые системные утилиты
+    # Системные утилиты
     coreutils curl unzip zip wget tree eza jq
 
     # Разработка
@@ -28,12 +28,14 @@
     postgresql_16
   ];
 
+  # Конфигурация пользователя
   users.users.dmitriy = {
     name = "dmitriy";
     home = "/Users/dmitriy";
     shell = pkgs.zsh;
   };
 
+  # Homebrew: CLI и GUI-пакеты
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
@@ -53,42 +55,31 @@
   programs.zsh.enable = true;
   environment.shells = [ pkgs.zsh ];
 
+  # Переменные окружения
   environment.variables = {
     PATH = "/opt/homebrew/bin:$PATH";
   };
 
+  # Включение flakes и новых возможностей nix
   nix.settings.experimental-features = "nix-command flakes";
 
+  # Версия состояния системы
   system.stateVersion = 6;
 
+  # Скрипт, выполняемый после активации
   system.activationScripts.postActivation.text = ''
-    USER_HOME="/Users/dmitriy"
+    # Безопасная смена shell
+    sudo chsh -s /run/current-system/sw/bin/zsh dmitriy || true
 
-    {
-      # Инициализация NVM
-      echo 'export NVM_DIR="$USER_HOME/.nvm"'
-      echo '[ -s "$(brew --prefix nvm)/nvm.sh" ] && . "$(brew --prefix nvm)/nvm.sh"'
+    # Сетевые и временные настройки (с защитой от сбоев)
+    sudo sysctl -w net.inet.ip.ttl=65 || true
+    sudo networksetup -setv6off Wi-Fi || true
+    sudo systemsetup -settimezone "Europe/Moscow" 2>/dev/null || true
+    sudo systemsetup -setusingnetworktime on 2>/dev/null || true
 
-      # Установка и настройка SDKMAN!
-      echo 'export SDKMAN_DIR="$USER_HOME/.sdkman"'
-      echo '[[ -s "$USER_HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$USER_HOME/.sdkman/bin/sdkman-init.sh"'
-
-      # Инициализация Tenv
-      echo 'export PATH="$USER_HOME/.tenv/bin:$PATH"'
-      echo 'eval "$(tenv init -)"'
-
-      # Подключение JetBrains VM options
-      echo '___MY_VMOPTIONS_SHELL_FILE="$USER_HOME/.jetbrains.vmoptions.sh"; if [ -f "$___MY_VMOPTIONS_SHELL_FILE" ]; then . "$___MY_VMOPTIONS_SHELL_FILE"; fi'
-    } >> "$USER_HOME/.zshrc"
-
-    # Настройки системы
-    sudo chsh -s /run/current-system/sw/bin/zsh dmitriy
-    sudo sysctl -w net.inet.ip.ttl=65
-    sudo networksetup -setv6off Wi-Fi
-    sudo systemsetup -settimezone "Europe/Moscow"
-    sudo systemsetup -setusingnetworktime on
-
-    # Перезапуск сервисов
-    brew services restart yabai || true
+    # Перезапуск yabai (если установлен)
+    if command -v brew >/dev/null 2>&1; then
+      brew services restart yabai || true
+    fi
   '';
 }
