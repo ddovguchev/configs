@@ -1,30 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  programs.hyprland.enable = true;
+  # GNOME
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
-  services.xserver.enable = false;
-
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
-  services.displayManager.defaultSession = "hyprland";
-
+  # PipeWire (звук)
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
 
+  # OpenGL + Vulkan
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [ vulkan-tools ];
-  };
-
-  systemd.services.display-manager.environment = {
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
   };
 }

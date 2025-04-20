@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/configs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin/darwin-configuration.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/darwin-configuration.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin/flake.lock" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/flake.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/flake.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/hyprland.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/hyprland.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.bash" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,10 +30,10 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -41,28 +42,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/dmitriy/Documents/projecta/configs/.idea",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dmitriy/Documents/projecta/configs/.idea&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/.idea" />
@@ -94,6 +95,7 @@
       <workItem from="1742192355392" duration="1354000" />
       <workItem from="1742193779960" duration="252000" />
       <workItem from="1742207196257" duration="5196000" />
+      <workItem from="1745131267727" duration="1854000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -127,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742194006889</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1745131593965</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745131593965</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
