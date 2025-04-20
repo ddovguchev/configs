@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/packages.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/packages.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/configuration.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/configuration.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/bluetooth.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/bluetooth.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/bundel.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/env.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/hyprland.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/network-rules.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/networking.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/packages.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/virtmanager.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/virt.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +74,7 @@
       <recent name="$PROJECT_DIR$/.idea" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/linux/nixos/flake" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/trash" />
       <recent name="$PROJECT_DIR$/darwin/modules" />
@@ -92,7 +101,7 @@
       <workItem from="1742192355392" duration="1354000" />
       <workItem from="1742193779960" duration="252000" />
       <workItem from="1742207196257" duration="5196000" />
-      <workItem from="1745131267727" duration="2371000" />
+      <workItem from="1745131267727" duration="3445000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -150,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745145274447</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1745145401486</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1745145401486</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

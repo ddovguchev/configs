@@ -2,7 +2,11 @@
 
 {
   imports = [
-    ./modules/bundel.nix
+    ./modules/bluetooth.nix
+    ./modules/desktop-gnome.nix
+    ./modules/networking.nix
+    ./modules/user.nix
+    ./modules/virt.nix
   ];
 
   networking.hostName = "nixos";
