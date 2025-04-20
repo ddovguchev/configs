@@ -14,8 +14,8 @@
     pulse.enable = true;
   };
 
-  # OpenGL + Vulkan
-  hardware.opengl = {
+  # OpenGL + Vulkan (актуально)
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ vulkan-tools ];
   };
