@@ -25,16 +25,16 @@
     pulse.enable = true;
   };
 
-  # OpenGL
+  # OpenGL / Vulkan
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ vulkan-tools ];
   };
 
-  # Unfree
+  # Разрешаем non-free пакеты
   nixpkgs.config.allowUnfree = true;
 
-  # Fonts
+  # Шрифты
   fonts.packages = with pkgs; [
     jetbrains-mono
     noto-fonts
@@ -48,9 +48,8 @@
 
   # Полезные пакеты
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
-    gnome.gnome-terminal
-    gnome.dconf-editor
+    gnome-terminal
+    dconf-editor
     firefox-wayland
     neovim
     zsh
