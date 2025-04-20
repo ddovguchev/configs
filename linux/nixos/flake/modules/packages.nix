@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python-2.7.18.8" "electron-25.9.0"];
   };
 
   environment.systemPackages = with pkgs; [
@@ -14,20 +13,18 @@
     rofi-wayland
     wofi
     mpv
-    kdenlive
+    kdePackages.kdenlive
     discord
     gparted
     obsidian
     pcmanfm-qt
     dmg2img
-    
+
     # Coding stuff
     neovim
     gnumake
     gcc
     nodejs
-    python
-    (python3.withPackages (ps: with ps; [ requests ]))
 
     # CLI utils
     vim
@@ -66,26 +63,19 @@
     mako
     gromit-mpx
 
-    # Xorg stuff
-    #xterm
-    #xclip
-    #xorg.xbacklight
-
     # Wayland stuff
     wl-clipboard
     cliphist
     swaylock
 
-    # WMs and stuff
+    # WMs (если захочешь кроме GNOME)
     herbstluftwm
     hyprland
     swaybg
-
     seatd
     xdg-desktop-portal-hyprland
     polybar
     waybar
-
 
     libinput
     vulkan-tools
@@ -96,7 +86,7 @@
     pulseaudio
     pamixer
 
-    # GPU stuff
+    # GPU
     amdvlk
     glaxnimate
 
