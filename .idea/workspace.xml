@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" afterDir="false" />
-    </list>
+    <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +94,7 @@
       <workItem from="1745357014215" duration="599000" />
       <workItem from="1745358338990" duration="599000" />
       <workItem from="1745359341705" duration="163000" />
-      <workItem from="1745662842481" duration="8252000" />
+      <workItem from="1745662842481" duration="8376000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -258,7 +256,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745693235999</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1745693369774</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1745693369774</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

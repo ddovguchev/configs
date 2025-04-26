@@ -69,6 +69,6 @@
     pkg-config
     libnsl
     xz
-    nss-cacert
+    cacert
   ];
 }
