@@ -65,5 +65,7 @@
     openssl
     sqlite
     libffi
+    gnumake
+    pkg-config
   ];
 }
