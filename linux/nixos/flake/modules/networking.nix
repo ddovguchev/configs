@@ -10,4 +10,14 @@
       allowedTCPPorts = [ 22 ];
     };
   };
+
+  systemd.services.load-firmware = {
+    description = "Load T2 network firmware";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.bash}/bin/bash /etc/nixos/firmware.sh";
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+  };
 }

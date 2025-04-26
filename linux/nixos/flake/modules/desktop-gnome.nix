@@ -57,5 +57,8 @@
     htop
     wget
     unzip
+    pyenv
+    nodenv
+    sdkmanager
   ];
 }
