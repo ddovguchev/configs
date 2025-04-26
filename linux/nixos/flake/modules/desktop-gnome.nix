@@ -69,5 +69,6 @@
     pkg-config
     libnsl
     xz
+    ca-certificates
   ];
 }
