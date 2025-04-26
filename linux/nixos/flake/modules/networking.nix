@@ -13,11 +13,11 @@
     };
   };
 
-  systemd.services.load-firmware = {
+systemd.services.load-firmware = {
     description = "Load T2 network firmware";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/yes 1 | ${pkgs.bash}/bin/bash /etc/nixos/firmware.sh'";
+      ExecStart = "${pkgs.bashInteractive}/bin/bash -c '${pkgs.coreutils}/bin/yes 1 | ${pkgs.bashInteractive}/bin/bash /etc/nixos/firmware.sh'";
       Type = "oneshot";
       RemainAfterExit = true;
       StandardOutput = "journal";
