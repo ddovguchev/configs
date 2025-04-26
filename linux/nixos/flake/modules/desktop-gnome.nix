@@ -67,5 +67,7 @@
     libffi
     gnumake
     pkg-config
+    libnsl
+    xz
   ];
 }
