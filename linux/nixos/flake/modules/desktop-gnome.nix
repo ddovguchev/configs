@@ -46,7 +46,6 @@
     nerd-fonts.symbols-only
   ];
 
-  # Полезные пакеты
   environment.systemPackages = with pkgs; [
     gnome-terminal
     dconf-editor
@@ -59,6 +58,12 @@
     unzip
     pyenv
     nodenv
-    sdkmanager
+    gcc
+    clang
+    zlib
+    bzip2
+    openssl
+    sqlite
+    libffi
   ];
 }
