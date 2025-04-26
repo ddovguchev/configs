@@ -70,5 +70,7 @@
     libnsl
     xz
     cacert
+    python3
+    python3Packages.pip
   ];
 }
