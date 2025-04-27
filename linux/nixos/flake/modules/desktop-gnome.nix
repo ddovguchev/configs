@@ -4,7 +4,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.wayland = true;
   services.xserver.desktopManager.gnome.enable = true;
-  systemd.defaultTarget = "graphical.target";
+  systemd.defaultTarget = "graphical";
 
   # Переменные окружения
   environment.variables = {
