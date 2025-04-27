@@ -4,6 +4,8 @@
     settings.PermitRootLogin = "yes";
   };
 
+  hardware.enableAllFirmware = true;
+
   networking = {
     networkmanager.enable = true;
     useDHCP = false;
