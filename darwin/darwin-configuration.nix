@@ -4,7 +4,7 @@
 
   environment.systemPackages = with pkgs; [
     # Базовые системные утилиты
-    coreutils curl unzip zip wget tree eza jq
+    coreutils curl unzip zip wget tree eza jq nmap neofetch
 
     # Разработка
     git neovim zsh fzf htop ripgrep fd bat lua-language-server mkalias nil templ tmux zoxide ranger pyenv
@@ -19,7 +19,7 @@
     wireguard-tools wireguard-go iperf rclone pass awscli
 
     # CI/CD и инфраструктура
-    act air argocd
+    act air argocd vault sops
 
     # Мультимедиа и графика
     ffmpeg spicetify-cli
@@ -40,9 +40,9 @@
     onActivation.autoUpdate = true;
     brews = [ "mas" "nvm" "goenv" ];
     casks = [
-      "hammerspoon" "notion" "iina" "arc" "chatgpt" "intellij-idea" "telegram"
+      "hammerspoon" "notion" "arc" "chatgpt" "intellij-idea" "telegram"
       "discord" "firefox" "visual-studio-code" "spotify" "gns3" "virtualbox"
-      "altserver" "sony-ps-remote-play"
+      "altserver"
     ];
   };
 

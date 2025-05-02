@@ -9,12 +9,12 @@
   history.path = "${config.xdg.dataHome}/zsh/history";
   shellAliases = {
     vim = "nvim";
+    vi = "nvim";
+    v = "nvim";
+
+    nf = "clear; neofetch";
+
     ls = "ls --color";
-    ctrl-l = "clear";
-    C-l = "ctrl-l";
-    control-l = "clear";
-    clean = "clear";
-    r2 = "aws --profile r2 --endpoint-url https://03af1b41c1aa6fe21d9b3a645dca423e.r2.cloudflarestorage.com";
   };
   initExtra = ''
     ZSH_DISABLE_COMPFIX=true

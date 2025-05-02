@@ -3,17 +3,17 @@
     enable = true;
     enableScriptingAddition = true;
     config = {
-      external_bar = "all:39:0";
+      external_bar = "all:0:0";
       layout = "stack";
       auto_balance = "off";
       mouse_modifier = "alt";
       mouse_action2 = "resize";
       mouse_action1 = "move";
-      top_padding = 15;
-      bottom_padding = 15;
-      left_padding = 15;
-      right_padding = 15;
-      window_gap = 15;
+      top_padding = 5;
+      bottom_padding = 5;
+      left_padding = 5;
+      right_padding = 5;
+      window_gap = 5;
     };
     extraConfig = ''
       yabai -m signal --add event=window_focused   action="sketchybar --trigger window_focus"
@@ -31,6 +31,12 @@
       yabai -m space 3 --label chat
       yabai -m space 4 --label utils
       yabai -m space 5 --label code
+
+      yabai -m config window_opacity               on
+      yabai -m config active_window_opacity        1.0
+      yabai -m config normal_window_opacity        0.90
+
+      yabai -m config focus_follows_mouse          autofocus
 
       yabai -m rule --add app="Reminder" space=todo
       yabai -m rule --add app="Mail" space=todo
