@@ -13,6 +13,6 @@
     zoxide = import ./home-manager/zoxide.nix { inherit config pkgs; };
     fzf = import ./home-manager/fzf.nix { inherit pkgs; };
     oh-my-posh = import ./home-manager/oh-my-posh.nix { inherit pkgs; };
-#    git = import ./home-manager/git.nix;
+    git = import ./home-manager/git.nix;
   };
 }

@@ -38,7 +38,7 @@
     enable = true;
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
-    brews = [ "mas" "nvm" "goenv" ];
+    brews = [ "mas" "nvm" "goenv" "tetra"];
     casks = [
       "hammerspoon" "notion" "arc" "chatgpt" "intellij-idea" "telegram"
       "discord" "firefox" "visual-studio-code" "spotify" "gns3" "virtualbox"
@@ -89,6 +89,6 @@
     sudo systemsetup -setusingnetworktime on
 
     # Перезапуск сервисов
-    brew services restart yabai || true
+    yabai --restart-service || true
   '';
 }
