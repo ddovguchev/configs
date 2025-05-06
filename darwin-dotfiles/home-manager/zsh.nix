@@ -29,7 +29,9 @@
     # k8s
     k = "kubectl";
     kg = "kubectl get";
-    kconfig = "kubectl config view -o json | jq -r \".clusters[].name as \$cluster | .users[].name as \$user | .contexts[] | select(.context.cluster == \$cluster and .context.user == \$user) | \\\"context: \\\" + .name + \",\\\\ncluster: \\\" + .context.cluster + \",\\\\nuser: \\\" + .context.user + \\\"\\\\n\"\"";
+    ks = "kubectl -n kube-system";
+    ksg = "kubectl -n kube-system";
+    kconfig = "kubectl config view -o json | jq -r '.clusters[].name as \$cluster | .users[].name as \$user | .contexts[] | select(.context.cluster == \$cluster and .context.user == \$user) | \"context: \" + .name + \",\\ncluster: \" + .context.cluster + \",\\nuser: \" + .context.user + \"\\n\"'";
 
     # terraform
     t = "terraform";
