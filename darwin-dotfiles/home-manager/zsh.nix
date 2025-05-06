@@ -8,13 +8,53 @@
   history.size = 10000;
   history.path = "${config.xdg.dataHome}/zsh/history";
   shellAliases = {
-    vim = "nvim";
-    vi = "nvim";
-    v = "nvim";
+    # Colorize grep output (good for log files)
+    grep = "grep --color=auto";
+    egrep = "egrep --color=auto";
+    fgrep = "fgrep --color=auto";
 
+    # confirm before overwriting something
+    cp = "cp -i";
+    mv = "mv -i";
+    rm = "rm -i";
+
+    # my own
+    v = "nvim";
+    vi = "nvim";
+    vim = "nvim";
+
+    c = "clear";
     nf = "clear; neofetch";
 
-    ls = "ls --color";
+    # k8s
+    k = "kubectl";
+    kg = "kubectl get";
+    kconfig = "kubectl config view -o json | jq -r \".clusters[].name as \$cluster | .users[].name as \$user | .contexts[] | select(.context.cluster == \$cluster and .context.user == \$user) | \\\"context: \\\" + .name + \",\\\\ncluster: \\\" + .context.cluster + \",\\\\nuser: \\\" + .context.user + \\\"\\\\n\"\"";
+
+    # terraform
+    t = "terraform";
+    ti = "terraform fmt; terraform init";
+    tp = "terraform fmt; terraform plan";
+    ta = "terraform fmt; terraform apply";
+    taa = "terraform fmt; terraform apply -auto-approve";
+    td = "terraform destroy";
+    tda = "terraform destroy -auto-approve";
+    tw = "terraform workspace";
+
+    # github alias
+    gpl = "git log --graph --abbrev-commit --decorate --all --date=format:\"%Y-%m-%d %I:%M %p\" --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"";
+
+    gps = "git status --short --branch";
+    gpb = "git for-each-ref --sort=-committerdate --format \"%(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(committerdate:relative)%(color:reset) - %(color:blue)%(contents:subject)%(color:reset)\" refs/heads/";
+    gpba = "git for-each-ref --sort=-committerdate --format \"%(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(committerdate:relative)%(color:reset) - %(color:blue)%(contents:subject)%(color:reset)\" refs/heads/ refs/remotes/";
+
+    ginit = "git init && git commit -m \"root\" --allow-empty";
+
+    gstash = "git stash --keep-index";
+    gstaash = "git stash --include-untracked";
+    gstaaash = "git stash --all";
+
+    gcomment = "git commit --amend --no-edit";
   };
   initExtra = ''
     ZSH_DISABLE_COMPFIX=true
@@ -80,7 +120,6 @@
       "golang"
       "kubectl"
       "kubectx"
-      "rust"
       "command-not-found"
       "pass"
       "helm"
