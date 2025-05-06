@@ -13,15 +13,18 @@
     username = "dmitriy";
     hostname = "Dovguchevs-MacBook-Pro";
     system = "aarch64-darwin";
+
+    darwinConfig = import ./darwin/1darwin-configuration.nix;
+    homeConfig = import ./home-manager/1home-configuration.nix;
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
       modules = [
-        ./darwin-configuration.nix
+        darwinConfig
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home.nix;
+          home-manager.users.${username} = homeConfig;
         }
       ];
     };

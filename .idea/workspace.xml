@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
+      <change afterPath="$PROJECT_DIR$/configs.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/1darwin-configuration.nix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/homebrew.nix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/skhd.nix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/1home-configuration.nix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/configs/k9s-catppuccin-mocha.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/configs/zen.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/git.nix" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/k9s.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin/darwin-configuration.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/darwin-configuration.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin/home-manager/git.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/home-manager/git.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin/home.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin/home.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/darwin-configuration.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/flake.lock" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/flake.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/flake.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/flake.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/configs/zen.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/fzf.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/fzf.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/git.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/oh-my-posh.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/oh-my-posh.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/tmux.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/tmux.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/zoxide.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/zoxide.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home-manager/zsh.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/zsh.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/home.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin/modules/yabai.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/yabai.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/flake.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/flake.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,45 +61,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;NIXITCH_NIXPKGS_CONFIG&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_CONF_DIR&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_OTHER_STORES&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_PATH&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_PROFILES&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_REMOTE&quot;: &quot;&quot;,
-    &quot;NIXITCH_NIX_USER_PROFILE_DIR&quot;: &quot;&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/dmitriy/Documents/projects/configs&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "NIXITCH_NIXPKGS_CONFIG": "",
+    "NIXITCH_NIX_CONF_DIR": "",
+    "NIXITCH_NIX_OTHER_STORES": "",
+    "NIXITCH_NIX_PATH": "",
+    "NIXITCH_NIX_PROFILES": "",
+    "NIXITCH_NIX_REMOTE": "",
+    "NIXITCH_NIX_USER_PROFILE_DIR": "",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/dmitriy/Documents/projects/configs/darwin-dotfiles/darwin",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/darwin-dotfiles/darwin" />
+      <recent name="$PROJECT_DIR$/darwin-dotfiles/home-manager/configs" />
+      <recent name="$PROJECT_DIR$/darwin-dotfiles/home-manager" />
       <recent name="$PROJECT_DIR$/.idea" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/darwin-dotfiles/home-manager" />
+      <recent name="$PROJECT_DIR$/darwin-dotfiles/darwin" />
+      <recent name="$PROJECT_DIR$/darwin/home-manager" />
       <recent name="$PROJECT_DIR$/linux/nixos/flake" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/trash" />
-      <recent name="$PROJECT_DIR$/darwin/modules" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -112,7 +136,14 @@
       <workItem from="1746056105861" duration="613000" />
       <workItem from="1746093883792" duration="6544000" />
       <workItem from="1746260755586" duration="2411000" />
-      <workItem from="1746434860839" duration="1538000" />
+      <workItem from="1746434860839" duration="2521000" />
+      <workItem from="1746453825469" duration="2569000" />
+      <workItem from="1746464539437" duration="1520000" />
+      <workItem from="1746477629775" duration="805000" />
+      <workItem from="1746479278731" duration="716000" />
+      <workItem from="1746480608435" duration="521000" />
+      <workItem from="1746511824890" duration="595000" />
+      <workItem from="1746512610417" duration="3884000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -394,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746186540739</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1746452150699</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1746452150699</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
