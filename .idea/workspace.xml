@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin-dotfiles/home-manager/zsh.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/home-manager/zsh.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin-dotfiles/darwin/1darwin-configuration.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/1darwin-configuration.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +124,7 @@
       <workItem from="1746511824890" duration="595000" />
       <workItem from="1746512610417" duration="4503000" />
       <workItem from="1746517127091" duration="2000" />
-      <workItem from="1746534280837" duration="2818000" />
+      <workItem from="1746534280837" duration="12054000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -421,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746536845379</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1746537516833</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1746537516833</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

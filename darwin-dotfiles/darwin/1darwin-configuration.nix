@@ -46,6 +46,24 @@
       [ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
       export PATH="$HOME/.tenv/bin:$PATH"
       export GNUPGHOME="$HOME/.gnupg"
+
+      export PYENV_ROOT="$HOME/.pyenv"
+      export PATH="$PYENV_ROOT/bin:$PATH"
+      eval "$(pyenv init --path)"
+      eval "$(pyenv init -)"
+
+      if [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+        echo "SDKMAN not found. Installing..."
+        curl -s "https://get.sdkman.io" | bash
+      else
+        echo "SDKMAN already installed."
+      fi
+
+      export SDKMAN_DIR="$HOME/.sdkman"
+      if [ ! -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]; then
+        curl -s "https://get.sdkman.io" | bash
+      fi
+      source "$SDKMAN_DIR/bin/sdkman-init.sh"
     '';
   };
 }

@@ -65,6 +65,7 @@
     rustup  # Менеджер версий Rust
     kubectl  # Инструмент командной строки для Kubernetes
     kubernetes-helm  # Пакетный менеджер для Kubernetes
+    kubescape #  Tool for testing if Kubernetes is deployed securely
     opentofu  # Управление инфраструктурой как код
     packer  # Инструмент для создания машинных образов
     colima  # Инструмент для работы с контейнерами на macOS
