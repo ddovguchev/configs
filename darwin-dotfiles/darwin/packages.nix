@@ -38,6 +38,7 @@
 
   environment.systemPackages = with pkgs; [
     # Основные утилиты
+    yq-go # Portable command-line YAML processor
     coreutils  # Утилиты GNU coreutils
     curl  # Утилита для работы с URL
     unzip  # Утилита для разархивирования файлов
@@ -72,6 +73,7 @@
     k9s  # Инструмент для управления Kubernetes из терминала
     talosctl  # Инструмент для управления Talos OS
     kustomize  # Инструмент для работы с Kubernetes YAML
+    hubble # cluster observe
 
     # Сетевые утилиты
     wireguard-tools  # Инструменты для работы с WireGuard VPN

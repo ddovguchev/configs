@@ -42,6 +42,8 @@
 
     home.file.".zshrc".force = true;
     home.file.".zshrc".text = ''
+      clear
+
       export NVM_DIR="$HOME/.nvm"
       [ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
       export PATH="$HOME/.tenv/bin:$PATH"
@@ -56,7 +58,9 @@
         echo "SDKMAN not found. Installing..."
         curl -s "https://get.sdkman.io" | bash
       else
-        echo "SDKMAN already installed."
+        echo "\n"
+        echo "👹Happy hacking 👹"
+        echo "\n"
       fi
 
       export SDKMAN_DIR="$HOME/.sdkman"
