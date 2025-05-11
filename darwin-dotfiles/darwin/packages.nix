@@ -16,13 +16,16 @@
       "steam"  # Игровая платформа Steam
       "gns3"  # GNS3 — сетевое моделирование
       "virtualbox"  # Виртуализация через VirtualBox
-      "discord"  # Discord
-      "telegram"  # Telegram для macOS
-      "spotify"  # Spotify
+      "discord"
+      "telegram"
+      "spotify"
+      "vagrant"
+
 
       # Браузеры
-      "arc"  # Arc браузер
-      "firefox"  # Firefox браузер
+      "arc"
+      "librewolf"
+      "firefox"
 
       # Программы для разработки
       "intellij-idea"  # IDE для разработки на Java
