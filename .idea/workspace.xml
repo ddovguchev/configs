@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/bemoji.rasi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/bottom_large.rasi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/config.rasi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/default.nix" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/emojis.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/rofi/wall_select.rasi" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/scripts/wallpaper-picker.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +141,7 @@
       <workItem from="1747136702218" duration="291000" />
       <workItem from="1747137010484" duration="383000" />
       <workItem from="1747295675888" duration="817000" />
-      <workItem from="1747560901091" duration="9707000" />
+      <workItem from="1747560901091" duration="11116000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -520,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747604940232</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1747605255133</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1747605255133</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,9 +4,9 @@
   services.dbus.enable = true;
 
   services.greetd.enable = true;
-  services.greetd.settings.default_session = {
-    command = "${pkgs.tuigreet}/bin/tuigreet --cmd Hyprland";
-  };
+#  services.greetd.settings.default_session = {
+#    command = "tuigreet --cmd Hyprland";
+#  };
 
   environment.variables = {
     EDITOR = "nvim";
@@ -70,6 +70,5 @@
     python3
     python3Packages.pip
     dmg2img
-    tuigreet
   ];
 }
