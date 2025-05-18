@@ -1,12 +1,16 @@
 { config, pkgs, ... }: {
-  # Ванильный GNOME
   services.xserver.enable = false;
   programs.hyprland.enable = true;
   services.dbus.enable = true;
-  services.greetd.enable = true;
-  services.greetd.settings.default_session.command = "Hyprland";
 
-  # Переменные окружения
+  services.greetd.enable = true;
+  services.greetd.settings.default_session = {
+    user = "hika";
+    command = ''
+      env HOME=/home/hika XDG_SESSION_TYPE=wayland Hyprland
+    '';
+  };
+
   environment.variables = {
     EDITOR = "nvim";
     RANGER_LOAD_DEFAULT_RC = "FALSE";
@@ -19,24 +23,20 @@
     SDL_VIDEODRIVER = "wayland";
   };
 
-  # PipeWire
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
 
-  # OpenGL / Vulkan
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ vulkan-tools ];
   };
 
-  # Разрешаем non-free пакеты
   nixpkgs.config.allowUnfree = true;
 
-  # Шрифты
-  fonts.packages = with pkgs; [
+  fonts.packages = with pkgs: [
     jetbrains-mono
     noto-fonts
     noto-fonts-emoji
@@ -47,7 +47,7 @@
     nerd-fonts.symbols-only
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs: [
     dconf-editor
     firefox-wayland
     neovim
