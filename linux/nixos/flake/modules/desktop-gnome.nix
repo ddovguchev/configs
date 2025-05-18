@@ -1,10 +1,10 @@
 { config, pkgs, ... }: {
   # Ванильный GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.enable = false;
+  programs.hyprland.enable = true;
   services.dbus.enable = true;
+  services.greetd.enable = true;
+  services.greetd.settings.default_session.command = "Hyprland";
 
   # Переменные окружения
   environment.variables = {
