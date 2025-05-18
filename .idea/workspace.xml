@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/flake.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/flake.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,12 @@
       <workItem from="1746780281934" duration="57000" />
       <workItem from="1746780350241" duration="217000" />
       <workItem from="1746781125539" duration="154000" />
-      <workItem from="1746781301313" duration="5664000" />
+      <workItem from="1746781301313" duration="11109000" />
+      <workItem from="1747062017664" duration="589000" />
+      <workItem from="1747136702218" duration="291000" />
+      <workItem from="1747137010484" duration="383000" />
+      <workItem from="1747295675888" duration="817000" />
+      <workItem from="1747560901091" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -467,7 +473,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746992855863</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1746994165034</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1746994165034</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

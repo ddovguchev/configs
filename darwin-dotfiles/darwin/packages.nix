@@ -8,6 +8,7 @@
       "nvm"  # Node Version Manager
       "goenv"  # Go environment manager
       "tetra"  # Тетрис
+      "cdk8s" # CDk для k8s
     ];
     casks = [
       # Утилиты
@@ -19,13 +20,13 @@
       "discord"
       "telegram"
       "spotify"
-      "vagrant"
-
+      "vagrant" # Авторматизая для vms
 
       # Браузеры
       "arc"
       "librewolf"
       "firefox"
+      "yandex"
 
       # Программы для разработки
       "intellij-idea"  # IDE для разработки на Java
@@ -33,9 +34,6 @@
       "notion"  # Notion для заметок
       "chatgpt"  # ChatGPT клиент для macOS
       "postman"  # Инструмент для API тестирования
-
-      # Инструменты для работы с системой
-      "karabiner-elements"  # Переназначение клавиш на macOS
     ];
   };
 
@@ -77,6 +75,7 @@
     talosctl  # Инструмент для управления Talos OS
     kustomize  # Инструмент для работы с Kubernetes YAML
     hubble # cluster observe
+    hcloud # hetzner cloud cli
 
     # Сетевые утилиты
     wireguard-tools  # Инструменты для работы с WireGuard VPN

@@ -11,5 +11,5 @@
     };
   };
 
-  services.getty.autologinUser = "hika";
+#  services.getty.autologinUser = "hika";
 }
