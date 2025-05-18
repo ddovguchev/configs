@@ -36,7 +36,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = with pkgs: [
+  fonts.packages = with pkgs; [
     jetbrains-mono
     noto-fonts
     noto-fonts-emoji
@@ -47,7 +47,7 @@
     nerd-fonts.symbols-only
   ];
 
-  environment.systemPackages = with pkgs: [
+  environment.systemPackages = with pkgs; [
     dconf-editor
     firefox-wayland
     neovim
