@@ -7,7 +7,6 @@
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/user.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,7 @@
       <workItem from="1747136702218" duration="291000" />
       <workItem from="1747137010484" duration="383000" />
       <workItem from="1747295675888" duration="817000" />
-      <workItem from="1747560901091" duration="8172000" />
+      <workItem from="1747560901091" duration="9359000" />
     </task>
     <task id="LOCAL-00001" summary="add darwin">
       <option name="closed" value="true" />
@@ -505,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747603160355</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1747603250805</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1747603250805</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

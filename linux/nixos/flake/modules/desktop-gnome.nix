@@ -5,7 +5,6 @@
 
   services.greetd.enable = true;
   services.greetd.settings.default_session = {
-    user = "hika";
     command = ''
       env HOME=/home/hika XDG_SESSION_TYPE=wayland Hyprland
     '';
@@ -73,5 +72,6 @@
     python3
     python3Packages.pip
     dmg2img
+    tuigreet
   ];
 }
