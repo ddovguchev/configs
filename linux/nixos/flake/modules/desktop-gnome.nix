@@ -5,9 +5,7 @@
 
   services.greetd.enable = true;
   services.greetd.settings.default_session = {
-    command = ''
-      env HOME=/home/hika XDG_SESSION_TYPE=wayland Hyprland
-    '';
+    command = "${pkgs.tuigreet}/bin/tuigreet --cmd Hyprland";
   };
 
   environment.variables = {
