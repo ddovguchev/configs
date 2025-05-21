@@ -9,7 +9,7 @@
 
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.hyprland}/bin/Hyprland";
         user = "greeter";
       };
     };
@@ -77,6 +77,6 @@
     python3
     python3Packages.pip
     dmg2img
-    tuigreet
+    greetd.tuigreet
   ];
 }
