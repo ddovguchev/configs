@@ -14,8 +14,6 @@
       "$mainMod" = "SUPER";
       monitor = "eDP-1,3072x1920@60,auto,2";
 
-
-
       env = [
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
@@ -24,11 +22,6 @@
         "QT_QPA_PLATFORM,wayland"
         "XDG_SCREENSHOTS_DIR,~/screens"
       ];
-
-      debug = {
-        disable_logs = false;
-        enable_stdout_logs = true;
-      };
 
       input = {
         kb_layout = "us,ru";
