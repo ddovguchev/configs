@@ -25,30 +25,24 @@
       inherit system;
       config.allowUnfree = true;
     };
-    homeConfiguration = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./home.nix ];
-    };
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {
         inherit pkgs-stable inputs system nixos-hardware;
       };
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
-        inputs.nixos-hardware.nixosModules.apple-t2
+        nixos-hardware.nixosModules.apple-t2
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.hika = import ./home-manager/home.nix;
+        }
       ];
-    };
-
-    homeConfigurations.hika = homeConfiguration;
-
-    packages.x86_64-linux.homeConfigurations = {
-      hika = homeConfiguration;
-    };
-
-    legacyPackages.x86_64-linux.homeConfigurations = {
-      hika = homeConfiguration;
     };
   };
 }
