@@ -5,10 +5,12 @@
 
   services.greetd = {
     enable = true;
+    vt = 1;
+
     settings = {
       default_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "hika";
+        command = "${pkgs.tuigreet}/bin/tuigreet --cmd ${pkgs.hyprland}/bin/Hyprland";
+        user = "greeter";
       };
     };
   };
