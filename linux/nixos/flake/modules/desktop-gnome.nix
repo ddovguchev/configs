@@ -75,5 +75,6 @@
     python3
     python3Packages.pip
     dmg2img
+    tuigreet
   ];
 }
