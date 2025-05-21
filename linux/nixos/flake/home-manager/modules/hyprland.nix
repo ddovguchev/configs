@@ -25,7 +25,8 @@
 
       input = {
         kb_layout = "us,ru";
-        kb_variant = "lang";
+        kb_variant = "";
+        kb_model = "pc105";
         kb_options = "grp:caps_toggle";
         follow_mouse = 1;
 

@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/hyprland.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/hyprland.nix" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,15 +134,7 @@
       <workItem from="1747137010484" duration="383000" />
       <workItem from="1747295675888" duration="817000" />
       <workItem from="1747560901091" duration="12429000" />
-      <workItem from="1747855588251" duration="2373000" />
-    </task>
-    <task id="LOCAL-00008" summary="add darwin">
-      <option name="closed" value="true" />
-      <created>1745145401486</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1745145401486</updated>
+      <workItem from="1747855588251" duration="2855000" />
     </task>
     <task id="LOCAL-00009" summary="add darwin">
       <option name="closed" value="true" />
@@ -529,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747857619949</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1747857973609</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1747857973609</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
