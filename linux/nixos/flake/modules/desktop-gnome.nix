@@ -3,10 +3,15 @@
   programs.hyprland.enable = true;
   services.dbus.enable = true;
 
-  services.greetd.enable = true;
-#  services.greetd.settings.default_session = {
-#    command = "tuigreet --cmd Hyprland";
-#  };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "hika";
+      };
+    };
+  };
 
   environment.variables = {
     EDITOR = "nvim";
