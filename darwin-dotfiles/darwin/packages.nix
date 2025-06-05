@@ -14,7 +14,6 @@
       # Утилиты
       "hammerspoon"  # Автоматизация с Hammerspoon
       "altserver"  # Инструмент для установки приложений на iOS
-      "steam"  # Игровая платформа Steam
       "gns3"  # GNS3 — сетевое моделирование
       "virtualbox"  # Виртуализация через VirtualBox
       "discord"

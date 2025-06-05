@@ -9,10 +9,22 @@
 
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd ${pkgs.hyprland}/bin/Hyprland";
+        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l --cmd ${pkgs.hyprland}/bin/Hyprland";
         user = "greeter";
       };
     };
+
+    greeter = {
+      user = "greeter";
+    };
+  };
+
+  users.users.greeter = {
+    isNormalUser = true;
+    description = "Greeter user";
+    shell = pkgs.nologin;
+    home = "/var/lib/greetd";
+    extraGroups = [ "video" "input" ];
   };
 
   environment.variables = {
@@ -77,6 +89,17 @@
     python3
     python3Packages.pip
     dmg2img
-    greetd.tuigreet
+
+
+    # greetd GUI login + deps
+    greetd.gtkgreet
+    gtk3
+    gtk4
+    glib
+    gsettings-desktop-schemas
+    libsoup
+    libadwaita
+    qt5.qtwayland
+    qt6.qtwayland
   ];
 }
