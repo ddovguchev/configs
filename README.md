@@ -6,5 +6,5 @@ curl -sSL https://raw.githubusercontent.com/ddovguchev/configs/master/linux/nixo
 ## Install TalosOS
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/ddovguchev/configs/master/scripts/install-talos.sh | sudo bash
+curl -sSL https://raw.githubusercontent.com/ddovguchev/configs/master/scripts/install-talos.sh | bash
 ```

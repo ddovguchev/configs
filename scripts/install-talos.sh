@@ -20,6 +20,7 @@ echo "-=== host info ===-"
 ip route
 ip a
 lsblk
+echo "-=================-"
 
 echo "[✓] Talos installed to $TARGET_DISK"
 reboot

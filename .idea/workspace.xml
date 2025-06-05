@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46a365fc-65e8-4bcc-9d62-938d513fac8d" name="Changes" comment="add darwin">
-      <change afterPath="$PROJECT_DIR$/scripts/install-talos.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" beforeDir="false" afterPath="$PROJECT_DIR$/darwin-dotfiles/darwin/packages.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/bundle.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/home-manager/modules/bundle.nix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" beforeDir="false" afterPath="$PROJECT_DIR$/linux/nixos/flake/modules/desktop-gnome.nix" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/install-talos.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/install-talos.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,15 +141,7 @@
       <workItem from="1748416825349" duration="2439000" />
       <workItem from="1748438839613" duration="2483000" />
       <workItem from="1748725609838" duration="3265000" />
-      <workItem from="1749109250326" duration="106000" />
-    </task>
-    <task id="LOCAL-00010" summary="add darwin">
-      <option name="closed" value="true" />
-      <created>1745146856003</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1745146856003</updated>
+      <workItem from="1749109250326" duration="690000" />
     </task>
     <task id="LOCAL-00011" summary="add darwin">
       <option name="closed" value="true" />
@@ -538,7 +527,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747858457839</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="add darwin">
+      <option name="closed" value="true" />
+      <created>1749109361560</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1749109361560</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
