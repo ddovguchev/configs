@@ -19,14 +19,6 @@
 #    };
 #  };
 
-  users.users.greeter = {
-    isNormalUser = true;
-    description = "Greeter user";
-    shell = pkgs.nologin;
-    home = "/var/lib/greetd";
-    extraGroups = [ "video" "input" ];
-  };
-
   environment.variables = {
     EDITOR = "nvim";
     RANGER_LOAD_DEFAULT_RC = "FALSE";
