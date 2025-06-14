@@ -20,6 +20,7 @@
       "telegram"
       "spotify"
       "vagrant" # Авторматизая для vms
+      "minio/stable/mc" # Minio
 
       # Браузеры
       "arc"

@@ -3,21 +3,20 @@
   programs.hyprland.enable = true;
   services.dbus.enable = true;
 
-  services.greetd = {
+
+  services.xserver = {
     enable = true;
-    vt = 1;
-
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l --cmd ${pkgs.hyprland}/bin/Hyprland";
-        user = "greeter";
-      };
-    };
-
-    greeter = {
-      user = "greeter";
-    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    cheese
+    epiphany
+  ]);
 
   users.users.greeter = {
     isNormalUser = true;
