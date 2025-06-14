@@ -1,5 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  # Helper to safely check if NVIDIA is enabled
+  nvidiaEnabled = config.hardware.nvidia.enable or false;
+in
 {
   # Disable X11 server (not needed for pure Wayland)
   services.xserver.enable = false;
@@ -8,16 +12,14 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;  # X11 app support
-
-    # Only apply NVIDIA patches if NVIDIA is enabled
-    nvidiaPatches = config.hardware.nvidia.enable or false;
+    nvidiaPatches = nvidiaEnabled;  # Only apply NVIDIA patches if NVIDIA is enabled
   };
 
-  # Required services for Wayland
+  # Basic Wayland requirements
   security.polkit.enable = true;
   services.dbus.enable = true;
 
-  # Greetd configuration with gtkgreet
+  # Display manager (greetd with gtkgreet)
   services.greetd = {
     enable = true;
     settings = {
@@ -28,7 +30,7 @@
     };
   };
 
-  # Greeter user account
+  # Greeter user
   users.users.greeter = {
     isNormalUser = true;
     description = "Greeter user";
@@ -37,12 +39,12 @@
     extraGroups = [ "video" "input" ];
   };
 
-  # NVIDIA configuration (if needed)
+  # NVIDIA configuration (optional - enable only if you have NVIDIA GPU)
   hardware.nvidia = {
-    # Only enable if you have NVIDIA hardware
-    enable = false;  # Change to true if using NVIDIA GPU
+    enable = false;  # Change to true if using NVIDIA
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement.enable = false;  # Set to true if you want power management
+    open = false;  # Set to true if using open-source drivers
   };
 
   # Graphics support
@@ -54,7 +56,9 @@
       vaapiVdpau
       libvdpau-va-gl
       vulkan-tools
-    ] ++ lib.optional config.hardware.nvidia.enable pkgs.linuxPackages.nvidia_x11;
+    ] ++ lib.optionals nvidiaEnabled [
+      nvidia-vaapi-driver
+    ];
   };
 
   # Audio configuration
@@ -62,11 +66,11 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-    jack.enable = true;
+    jack.enable = false;  # Enable if you need JACK support
   };
 
   # Environment variables
-  environment.sessionVariables = {
+  environment.sessionVariables = rec {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
@@ -75,6 +79,7 @@
     XDG_SESSION_TYPE = "wayland";
     EDITOR = "nvim";
     QT_QPA_PLATFORMTHEME = "qt5ct";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   # Fonts
@@ -86,7 +91,7 @@
     (nerd-fonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
-  # System packages
+  # Essential system packages
   environment.systemPackages = with pkgs; [
     # Core utilities
     git
@@ -107,9 +112,14 @@
     # Applications
     firefox-wayland
     dconf-editor
+
+    # Development tools
+    gcc
+    clang
+    python3
   ];
 
-  # Allow unfree packages
+  # Allow unfree packages (required for some drivers)
   nixpkgs.config.allowUnfree = true;
 
   # XDG portal integration
