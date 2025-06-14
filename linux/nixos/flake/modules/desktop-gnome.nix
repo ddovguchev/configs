@@ -4,19 +4,30 @@
   services.dbus.enable = true;
 
 
-  services.xserver = {
+  # Enable Hyprland
+  programs.hyprland = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    xwayland.enable = true;  # Optional: X11 compatibility
   };
 
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-photos
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    cheese
-    epiphany
-  ]);
+  # Required for Wayland
+  security.polkit.enable = true;
+
+  # Optional: Enable swaylock (screen locking)
+  programs.sway.enable = true;
+
+  # Optional: Use SDDM as the login manager (instead of GDM)
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+
+  # Environment variables for Wayland
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";  # Fixes some Electron apps
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+  };
 
   users.users.greeter = {
     isNormalUser = true;
