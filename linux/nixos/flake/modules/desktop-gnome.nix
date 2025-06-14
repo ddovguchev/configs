@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # Импорт необходимых модулей
-  imports = [
-    ./hardware-configuration.nix
-  ];
-
   # Базовые настройки системы
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -22,10 +17,8 @@
   users.users.nixos = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
+    initialPassword = "password";  # Не забудьте изменить после установки
   };
-
-  # Отключение X11 (используем Wayland)
-  services.xserver.enable = false;
 
   # Настройка Hyprland
   programs.hyprland = {
@@ -33,11 +26,15 @@
     xwayland.enable = true;
   };
 
-  # Графический стек
+  # Графический стек (универсальный)
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
 
   # Аудио
@@ -45,34 +42,16 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    jack.enable = false;
   };
 
-  # Менеджер входа (greetd)
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell";
-        user = "greeter";
-      };
-    };
-  };
-
-  # Пользователь для greetd
-  users.users.greeter = {
-    isNormalUser = true;
-    description = "Greeter user";
-    shell = pkgs.nologin;
-    home = "/var/lib/greetd";
-    extraGroups = [ "video" "input" ];
-  };
-
-  # Переменные окружения
+  # Переменные окружения Wayland
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
     GDK_BACKEND = "wayland";
+    SDL_VIDEODRIVER = "wayland";
   };
 
   # Шрифты
@@ -106,7 +85,7 @@
   # Разрешить несвободные пакеты
   nixpkgs.config.allowUnfree = true;
 
-  # Включить flakes и nix-command
+  # Включить flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # XDG портал
@@ -117,8 +96,4 @@
 
   # Включить zsh
   programs.zsh.enable = true;
-
-  # Автоматическое обновление
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
 }
