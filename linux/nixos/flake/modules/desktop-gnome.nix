@@ -1,20 +1,53 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
-  # Disable X11 server
+  # Импорт необходимых модулей
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  # Базовые настройки системы
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Сетевая конфигурация
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+
+  # Локализация
+  time.timeZone = "Europe/Moscow";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Пользователи
+  users.users.nixos = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
+
+  # Отключение X11 (используем Wayland)
   services.xserver.enable = false;
 
-  # Basic Wayland requirements
-  security.polkit.enable = true;
-  services.dbus.enable = true;
-
-  # Hyprland configuration (without NVIDIA patches for now)
+  # Настройка Hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
-  # Display manager (greetd)
+  # Графический стек
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Аудио
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  # Менеджер входа (greetd)
   services.greetd = {
     enable = true;
     settings = {
@@ -25,7 +58,7 @@
     };
   };
 
-  # Greeter user
+  # Пользователь для greetd
   users.users.greeter = {
     isNormalUser = true;
     description = "Greeter user";
@@ -34,52 +67,58 @@
     extraGroups = [ "video" "input" ];
   };
 
-  # Graphics support
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
-
-  # Audio
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
-  # Environment variables
+  # Переменные окружения
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     MOZ_ENABLE_WAYLAND = "1";
+    GDK_BACKEND = "wayland";
   };
 
-  # Fonts
+  # Шрифты
   fonts.packages = with pkgs; [
     (nerd-fonts.override { fonts = [ "FiraCode" ]; })
     noto-fonts-emoji
+    font-awesome
   ];
 
-  # System packages
+  # Системные пакеты
   environment.systemPackages = with pkgs; [
-    # Wayland essentials
+    # Основные утилиты
+    git
+    neovim
+    wget
+    htop
+
+    # Wayland окружение
     wofi
     waybar
     swaylock
+    swayidle
+    grim
+    slurp
     wl-clipboard
 
-    # Utilities
-    git
-    neovim
+    # Приложения
+    firefox-wayland
   ];
 
-  # XDG portal
+  # Разрешить несвободные пакеты
+  nixpkgs.config.allowUnfree = true;
+
+  # Включить flakes и nix-command
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # XDG портал
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
+  # Включить zsh
+  programs.zsh.enable = true;
+
+  # Автоматическое обновление
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
 }
