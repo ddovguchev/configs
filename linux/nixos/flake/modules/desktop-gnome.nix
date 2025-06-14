@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Disable X11 server
@@ -8,17 +8,10 @@
   security.polkit.enable = true;
   services.dbus.enable = true;
 
-  # NVIDIA configuration (must come BEFORE hyprland config)
-  hardware.nvidia = {
-    enable = false;  # Set to true if you have NVIDIA GPU
-    modesetting.enable = true;
-  };
-
-  # Hyprland configuration (now safe to reference nvidia settings)
+  # Hyprland configuration (without NVIDIA patches for now)
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    nvidiaPatches = config.hardware.nvidia.enable or false;
   };
 
   # Display manager (greetd)
@@ -48,7 +41,7 @@
     extraPackages = with pkgs; [
       vaapiVdpau
       libvdpau-va-gl
-    ] ++ (lib.optional config.hardware.nvidia.enable pkgs.nvidia-vaapi-driver);
+    ];
   };
 
   # Audio
