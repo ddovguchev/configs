@@ -1,21 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  # Отключение X11 сервера (не нужен для Wayland)
+  # Disable X11 server (not needed for pure Wayland)
   services.xserver.enable = false;
 
-  # Настройки Hyprland
+  # Hyprland configuration
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;  # Поддержка X11 приложений
-    nvidiaPatches = config.hardware.nvidia.enable;  # Автоматические патчи для NVIDIA
+    xwayland.enable = true;  # X11 app support
+
+    # Only apply NVIDIA patches if NVIDIA is enabled
+    nvidiaPatches = config.hardware.nvidia.enable or false;
   };
 
-  # Необходимые сервисы для Wayland
+  # Required services for Wayland
   security.polkit.enable = true;
   services.dbus.enable = true;
 
-  # Экранный менеджер (greetd с gtkgreet)
+  # Greetd configuration with gtkgreet
   services.greetd = {
     enable = true;
     settings = {
@@ -26,7 +28,7 @@
     };
   };
 
-  # Пользователь для greetd
+  # Greeter user account
   users.users.greeter = {
     isNormalUser = true;
     description = "Greeter user";
@@ -35,15 +37,15 @@
     extraGroups = [ "video" "input" ];
   };
 
-  # Аудио (PipeWire заменяет PulseAudio)
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
+  # NVIDIA configuration (if needed)
+  hardware.nvidia = {
+    # Only enable if you have NVIDIA hardware
+    enable = false;  # Change to true if using NVIDIA GPU
+    modesetting.enable = true;
+    powerManagement.enable = true;
   };
 
-  # Графика
+  # Graphics support
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -52,10 +54,18 @@
       vaapiVdpau
       libvdpau-va-gl
       vulkan-tools
-    ];
+    ] ++ lib.optional config.hardware.nvidia.enable pkgs.linuxPackages.nvidia_x11;
   };
 
-  # Переменные окружения
+  # Audio configuration
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
+
+  # Environment variables
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
@@ -64,12 +74,10 @@
     GDK_BACKEND = "wayland";
     XDG_SESSION_TYPE = "wayland";
     EDITOR = "nvim";
-    RANGER_LOAD_DEFAULT_RC = "FALSE";
     QT_QPA_PLATFORMTHEME = "qt5ct";
-    GSETTINGS_BACKEND = "keyfile";
   };
 
-  # Шрифты
+  # Fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
     noto-fonts
@@ -78,16 +86,16 @@
     (nerd-fonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
-  # Системные пакеты
+  # System packages
   environment.systemPackages = with pkgs; [
-    # Основные утилиты
+    # Core utilities
     git
     neovim
     wget
     htop
     zsh
 
-    # Wayland окружение
+    # Wayland environment
     wofi
     waybar
     swaylock
@@ -96,23 +104,15 @@
     slurp
     wl-clipboard
 
-    # Графические приложения
+    # Applications
     firefox-wayland
     dconf-editor
-
-    # Разработка
-    gcc
-    clang
-    python3
-    nodejs
-    rustup
   ];
 
-  # Разрешение несвободных пакетов
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Дополнительные настройки
-  programs.sway.enable = true;  # Совместимость с Sway утилитами
+  # XDG portal integration
   xdg.portal = {
     enable = true;
     wlr.enable = true;
