@@ -1,99 +1,105 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }: {
+  services.xserver.enable = false;
+  programs.hyprland.enable = true;
+  services.dbus.enable = true;
 
-{
-  # Базовые настройки системы
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+#  services.greetd = {
+#    enable = true;
+#    vt = 1;
+#
+#    settings = {
+#      default_session = {
+#        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l --cmd ${pkgs.hyprland}/bin/Hyprland";
+#        user = "greeter";
+#      };
+#    };
+#
+#    greeter = {
+#      user = "grezeter";
+#    };
+#  };
 
-  # Сетевая конфигурация
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-
-  # Локализация
-  time.timeZone = "Europe/Moscow";
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Пользователи
-  users.users.nixos = {
+  users.users.greeter = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
-    initialPassword = "password";  # Не забудьте изменить после установки
+    description = "Greeter user";
+    shell = pkgs.nologin;
+    home = "/var/lib/greetd";
+    extraGroups = [ "video" "input" ];
   };
 
-  # Настройка Hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
+  environment.variables = {
+    EDITOR = "nvim";
+    RANGER_LOAD_DEFAULT_RC = "FALSE";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    GSETTINGS_BACKEND = "keyfile";
+    XDG_SESSION_TYPE = "wayland";
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    SDL_VIDEODRIVER = "wayland";
   };
 
-  # Графический стек (универсальный)
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
-
-  # Аудио
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-    jack.enable = false;
   };
 
-  # Переменные окружения Wayland
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "wayland";
-    MOZ_ENABLE_WAYLAND = "1";
-    GDK_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [ vulkan-tools ];
   };
 
-  # Шрифты
-  fonts.packages = with pkgs; [
-    (nerd-fonts.override { fonts = [ "FiraCode" ]; })
-    noto-fonts-emoji
-    font-awesome
-  ];
-
-  # Системные пакеты
-  environment.systemPackages = with pkgs; [
-    # Основные утилиты
-    git
-    neovim
-    wget
-    htop
-
-    # Wayland окружение
-    wofi
-    waybar
-    swaylock
-    swayidle
-    grim
-    slurp
-    wl-clipboard
-
-    # Приложения
-    firefox-wayland
-  ];
-
-  # Разрешить несвободные пакеты
   nixpkgs.config.allowUnfree = true;
 
-  # Включить flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    noto-fonts
+    noto-fonts-emoji
+    twemoji-color-font
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    nerd-fonts.symbols-only
+  ];
 
-  # XDG портал
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
+  environment.systemPackages = with pkgs; [
+    dconf-editor
+    firefox-wayland
+    neovim
+    zsh
+    git
+    htop
+    wget
+    unzip
+    pyenv
+    nodenv
+    gcc
+    clang
+    zlib
+    bzip2
+    openssl
+    sqlite
+    libffi
+    gnumake
+    pkg-config
+    libnsl
+    xz
+    cacert
+    python3
+    python3Packages.pip
+    dmg2img
 
-  # Включить zsh
-  programs.zsh.enable = true;
+
+    # greetd GUI login + deps
+    greetd.gtkgreet
+    gtk3
+    gtk4
+    glib
+    gsettings-desktop-schemas
+    libsoup
+    libadwaita
+    qt5.qtwayland
+    qt6.qtwayland
+  ];
 }
