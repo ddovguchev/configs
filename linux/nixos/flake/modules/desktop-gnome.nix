@@ -1,34 +1,32 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+
+{
+  # Отключение X11 сервера (не нужен для Wayland)
   services.xserver.enable = false;
-  programs.hyprland.enable = true;
-  services.dbus.enable = true;
 
-
-  # Enable Hyprland
+  # Настройки Hyprland
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;  # Optional: X11 compatibility
+    xwayland.enable = true;  # Поддержка X11 приложений
+    nvidiaPatches = config.hardware.nvidia.enable;  # Автоматические патчи для NVIDIA
   };
 
-  # Required for Wayland
+  # Необходимые сервисы для Wayland
   security.polkit.enable = true;
+  services.dbus.enable = true;
 
-  # Optional: Enable swaylock (screen locking)
-  programs.sway.enable = true;
-
-  # Optional: Use SDDM as the login manager (instead of GDM)
-  services.displayManager.sddm = {
+  # Экранный менеджер (greetd с gtkgreet)
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell";
+        user = "greeter";
+      };
+    };
   };
 
-  # Environment variables for Wayland
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";  # Fixes some Electron apps
-    QT_QPA_PLATFORM = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-  };
-
+  # Пользователь для greetd
   users.users.greeter = {
     isNormalUser = true;
     description = "Greeter user";
@@ -37,79 +35,87 @@
     extraGroups = [ "video" "input" ];
   };
 
-  environment.variables = {
-    EDITOR = "nvim";
-    RANGER_LOAD_DEFAULT_RC = "FALSE";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    GSETTINGS_BACKEND = "keyfile";
-    XDG_SESSION_TYPE = "wayland";
-    GDK_BACKEND = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-  };
-
+  # Аудио (PipeWire заменяет PulseAudio)
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
-  hardware.graphics = {
+  # Графика
+  hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [ vulkan-tools ];
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      vulkan-tools
+    ];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  # Переменные окружения
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    GDK_BACKEND = "wayland";
+    XDG_SESSION_TYPE = "wayland";
+    EDITOR = "nvim";
+    RANGER_LOAD_DEFAULT_RC = "FALSE";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    GSETTINGS_BACKEND = "keyfile";
+  };
 
+  # Шрифты
   fonts.packages = with pkgs; [
     jetbrains-mono
     noto-fonts
     noto-fonts-emoji
-    twemoji-color-font
     font-awesome
-    powerline-fonts
-    powerline-symbols
-    nerd-fonts.symbols-only
+    (nerd-fonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
+  # Системные пакеты
   environment.systemPackages = with pkgs; [
-    dconf-editor
-    firefox-wayland
-    neovim
-    zsh
+    # Основные утилиты
     git
-    htop
+    neovim
     wget
-    unzip
-    pyenv
-    nodenv
+    htop
+    zsh
+
+    # Wayland окружение
+    wofi
+    waybar
+    swaylock
+    swayidle
+    grim
+    slurp
+    wl-clipboard
+
+    # Графические приложения
+    firefox-wayland
+    dconf-editor
+
+    # Разработка
     gcc
     clang
-    zlib
-    bzip2
-    openssl
-    sqlite
-    libffi
-    gnumake
-    pkg-config
-    libnsl
-    xz
-    cacert
     python3
-    python3Packages.pip
-    dmg2img
-
-
-    # greetd GUI login + deps
-    greetd.gtkgreet
-    gtk3
-    gtk4
-    glib
-    gsettings-desktop-schemas
-    libsoup
-    libadwaita
-    qt5.qtwayland
-    qt6.qtwayland
+    nodejs
+    rustup
   ];
+
+  # Разрешение несвободных пакетов
+  nixpkgs.config.allowUnfree = true;
+
+  # Дополнительные настройки
+  programs.sway.enable = true;  # Совместимость с Sway утилитами
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 }
