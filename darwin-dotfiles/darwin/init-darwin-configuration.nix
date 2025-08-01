@@ -19,5 +19,8 @@
 
   imports = [
     (import ./packages.nix { inherit config lib pkgs; })
+
+    (import ./module/yabai.nix { inherit config lib pkgs; })
+    (import ./module/skhd.nix { inherit config lib pkgs; })
   ];
 }

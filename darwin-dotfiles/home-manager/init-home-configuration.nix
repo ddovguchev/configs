@@ -21,9 +21,4 @@
       home = config.home;
     };
   };
-
-#  imports = [
-#    ./yabai/yabai.nix
-#    ./skhd/skhd.nix
-#  ];
 }
