@@ -75,6 +75,8 @@
     kustomize  # Инструмент для работы с Kubernetes YAML
     hubble # cluster observe
     hcloud # hetzner cloud cli
+    tenv
+    gnupg
 
     # Сетевые утилиты
     wireguard-tools  # Инструменты для работы с WireGuard VPN

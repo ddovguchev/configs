@@ -14,10 +14,22 @@
     hostname = "Dovguchevs-MacBook-Pro";
     system = "aarch64-darwin";
 
-    darwinConfig = import ./darwin/init-darwin-configuration.nix;
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    lib = pkgs.lib;
+
+    darwinConfig = import ./darwin/init-darwin-configuration.nix {
+      inherit pkgs lib username;
+      config = {};
+    };
+
     homeConfig = import ./home-manager/init-home-configuration.nix;
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+      system = system;
       modules = [
         darwinConfig
         home-manager.darwinModules.home-manager

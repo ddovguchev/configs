@@ -14,6 +14,6 @@
     plugins = import modules/oh-my-zsh-plugins.nix;
   };
 
-  sessionVariables = import modules/env.nix;
+  sessionVariables = import modules/env.nix { inherit config pkgs; };
   plugins = import modules/plugins.nix { inherit pkgs; };
 }
