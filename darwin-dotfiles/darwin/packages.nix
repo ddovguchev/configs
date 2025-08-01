@@ -52,6 +52,7 @@
     git  # Система контроля версий
     fzf  # Утилита для поиска и выбора
     yabai # wm
+    eza # pretty ls
 
     # Разработка и DevOps
     neovim  # Редактор Neovim

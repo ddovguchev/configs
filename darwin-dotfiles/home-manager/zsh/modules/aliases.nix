@@ -1,4 +1,9 @@
 {
+  ls = "eza --icons --group-directories-first --git -lh";
+  ll = "eza -l --icons --group-directories-first --git";
+  la = "eza -a --icons --group-directories-first --git -lh";
+  l = "ls";
+
   grep = "grep --color=auto";
   egrep = "egrep --color=auto";
   fgrep = "fgrep --color=auto";
