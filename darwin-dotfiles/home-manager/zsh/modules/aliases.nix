@@ -1,4 +1,3 @@
-{}:
 {
   grep = "grep --color=auto";
   egrep = "egrep --color=auto";

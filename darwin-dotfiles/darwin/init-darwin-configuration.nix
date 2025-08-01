@@ -57,10 +57,6 @@
       if [ ! -s "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
         echo "SDKMAN not found. Installing..."
         curl -s "https://get.sdkman.io" | bash
-      else
-        echo "\n"
-        echo "👹Happy hacking 👹"
-        echo "\n"
       fi
 
       export SDKMAN_DIR="$HOME/.sdkman"

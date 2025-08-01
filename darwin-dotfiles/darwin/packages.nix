@@ -20,7 +20,6 @@
       "telegram"
       "spotify"
       "vagrant" # Авторматизая для vms
-      "minio/stable/mc" # Minio
 
       # Браузеры
       "arc"
@@ -33,7 +32,6 @@
       "visual-studio-code"  # VS Code
       "notion"  # Notion для заметок
       "chatgpt"  # ChatGPT клиент для macOS
-      "postman"  # Инструмент для API тестирования
     ];
   };
 
