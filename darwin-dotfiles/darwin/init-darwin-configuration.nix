@@ -17,9 +17,13 @@
   system.stateVersion = 6;
   system.primaryUser = username;
 
-  imports = [
-    (import ./packages.nix { inherit config lib pkgs; })
+  nix.gc.interval.Day = 7;
+  nix.settings.extra-nix-path = "nixpkgs=flake:nixpkgs";
 
+  imports = [
+    ./module/system.nix
+
+    (import ./packages.nix { inherit config lib pkgs; })
     (import ./module/yabai.nix { inherit config lib pkgs; })
     (import ./module/skhd.nix { inherit config lib pkgs; })
   ];
