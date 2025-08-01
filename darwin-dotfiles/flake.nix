@@ -14,8 +14,8 @@
     hostname = "Dovguchevs-MacBook-Pro";
     system = "aarch64-darwin";
 
-    darwinConfig = import ./darwin/1darwin-configuration.nix;
-    homeConfig = import ./home-manager/1home-configuration.nix;
+    darwinConfig = import ./darwin/init-darwin-configuration.nix;
+    homeConfig = import ./home-manager/init-home-configuration.nix;
   in {
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
       modules = [

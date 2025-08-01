@@ -1,24 +1,29 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config, pkgs, lib, ... }: {
   enable = true;
-  history.size = 10000;
-  history.path = "${config.xdg.dataHome}/zsh/history";
+
+  history = {
+    size = 10000;
+    path = "${config.xdg.dataHome}/zsh/history";
+  };
+
+  sessionVariables = {
+    EDITOR = "vim";
+    ZSH_DISABLE_COMPFIX = "true";
+    GPG_TTY = "$TTY";
+    BUN_INSTALL = "$HOME/.bun";
+    PATH = "$HOME/go/bin:$HOME/.bun/bin:$PATH";
+    SSH_AUTH_SOCK = "$(gpgconf --list-dirs agent-ssh-socket)";
+  };
+
   shellAliases = {
-    # Colorize grep output (good for log files)
     grep = "grep --color=auto";
     egrep = "egrep --color=auto";
     fgrep = "fgrep --color=auto";
 
-    # confirm before overwriting something
     cp = "cp -i";
     mv = "mv -i";
     rm = "rm -i";
 
-    # my own
     v = "nvim";
     vi = "nvim";
     vim = "nvim";
@@ -31,7 +36,15 @@
     kg = "kubectl get";
     ks = "kubectl -n kube-system";
     ksg = "kubectl -n kube-system";
-    kconfig = "kubectl config view -o json | jq -r '.clusters[].name as \$cluster | .users[].name as \$user | .contexts[] | select(.context.cluster == \$cluster and .context.user == \$user) | \"context: \" + .name + \",\\ncluster: \" + .context.cluster + \",\\nuser: \" + .context.user + \"\\n\"'";
+    kconfig = ''
+      kubectl config view -o json | jq -r '
+        .clusters[].name as $cluster |
+        .users[].name as $user |
+        .contexts[] |
+        select(.context.cluster == $cluster and .context.user == $user) |
+        "context: " + .name + ",\ncluster: " + .context.cluster + ",\nuser: " + .context.user + "\n"
+      '
+    '';
 
     # terraform
     t = "terraform";
@@ -43,68 +56,42 @@
     tda = "terraform destroy -auto-approve";
     tw = "terraform workspace";
 
-    # github alias
+    # git
     gpl = "git log --graph --abbrev-commit --decorate --all --date=format:\"%Y-%m-%d %I:%M %p\" --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%ad%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"";
-
     gps = "git status --short --branch";
     gpb = "git for-each-ref --sort=-committerdate --format \"%(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(committerdate:relative)%(color:reset) - %(color:blue)%(contents:subject)%(color:reset)\" refs/heads/";
     gpba = "git for-each-ref --sort=-committerdate --format \"%(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(committerdate:relative)%(color:reset) - %(color:blue)%(contents:subject)%(color:reset)\" refs/heads/ refs/remotes/";
-
     ginit = "git init && git commit -m \"root\" --allow-empty";
-
-    gstash = "git stash --keep-index";
-    gstaash = "git stash --include-untracked";
-    gstaaash = "git stash --all";
-
-    gcomment = "git commit --amend --no-edit";
   };
+
   initExtra = ''
-    ZSH_DISABLE_COMPFIX=true
-    export EDITOR=nvim
     if [ -n "$TTY" ]; then
       export GPG_TTY=$(tty)
-    else
-      export GPG_TTY="$TTY"
     fi
 
-    export BUN_INSTALL=$HOME/.bun
-    export PATH="$HOME/go/bin:$BUN_INSTALL/bin:$PATH"
-
-    # SSH_AUTH_SOCK set to GPG to enable using gpgagent as the ssh agent.
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
     gpgconf --launch gpg-agent
-
     bindkey -e
 
-    # disable sort when completing `git checkout`
+    # Completion settings
     zstyle ':completion:*:git-checkout:*' sort false
-
-    # set descriptions format to enable group support
-    # NOTE: don't use escape sequences here, fzf-tab will ignore them
     zstyle ':completion:*:descriptions' format '[%d]'
-
-    # set list-colors to enable filename colorizing
     zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-
-    # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
     zstyle ':completion:*' menu no
 
-    # preview directory's content with eza when completing cd
+    # fzf-tab previews
     zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
     zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
     zstyle ':fzf-tab:complete:ls:*' fzf-preview 'cat $realpath'
-
-    # switch group using `<` and `>`
     zstyle ':fzf-tab:*' switch-group '<' '>'
 
     # Keybindings
-    bindkey -e
     bindkey '^p' history-search-backward
     bindkey '^n' history-search-forward
     bindkey '^[w' kill-region
 
     zle_highlight+=(paste:none)
 
+    # History options
     setopt appendhistory
     setopt sharehistory
     setopt hist_ignore_space
@@ -113,6 +100,7 @@
     setopt hist_ignore_dups
     setopt hist_find_no_dups
   '';
+
   oh-my-zsh = {
     enable = true;
     plugins = [
@@ -127,6 +115,7 @@
       "helm"
     ];
   };
+
   plugins = [
     {
       name = "zsh-autosuggestions";

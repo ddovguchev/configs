@@ -10,8 +10,7 @@
 
   programs = {
     tmux = import ./tmux.nix { inherit pkgs; };
-    zsh = import ./zsh.nix { inherit config pkgs lib; };
-    zoxide = import ./zoxide.nix { inherit config pkgs; };
+    zsh = import ./zsh/zsh-config.nix { inherit config pkgs lib; };
     fzf = import ./fzf.nix { inherit pkgs; };
     k9s = import ./k9s.nix { inherit pkgs; };
     oh-my-posh = import ./oh-my-posh.nix { inherit pkgs; };
