@@ -15,5 +15,5 @@
     catppuccin-mocha = theme/k9s-catppuccin-mocha.yaml;
   };
 
-  plugin = import modules/k9s-plugin.nix { inherit pkgs; };
+  plugins = import modules/k9s-plugin.nix { inherit pkgs; };
 }

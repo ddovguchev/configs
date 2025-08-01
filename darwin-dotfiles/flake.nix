@@ -10,8 +10,8 @@
   };
 
   outputs = { self, nix-darwin, nixpkgs, home-manager, ... } @ inputs: let
-    username = "dmitriy";
-    hostname = "Dovguchevs-MacBook-Pro";
+    username = "dzmitriy";
+    hostname = "dzmitriys-MacBook-Pro";
     system = "aarch64-darwin";
 
     pkgs = import nixpkgs {

@@ -10,12 +10,14 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
   environment.shells = [ pkgs.zsh ];
 
   nix.settings.experimental-features = "nix-command flakes";
 
   system.stateVersion = 6;
+  system.primaryUser = username;
 
-  imports = [ ./packages.nix ./yabai.nix ./skhd.nix ];
+  imports = [
+    (import ./packages.nix { inherit config lib pkgs; })
+  ];
 }

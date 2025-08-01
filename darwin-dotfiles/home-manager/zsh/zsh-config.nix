@@ -7,7 +7,7 @@
   };
 
   shellAliases = import modules/aliases.nix;
-  initExtra = builtins.readFile modules/init-extra.sh;
+  initContent = builtins.readFile modules/init-extra.sh;
 
   oh-my-zsh = {
     enable = true;

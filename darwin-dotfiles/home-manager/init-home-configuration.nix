@@ -1,11 +1,10 @@
 { config, pkgs, lib, ... }: {
   programs.home-manager.enable = true;
 
-  home.username = "dmitriy";
-  home.homeDirectory = "/Users/dmitriy";
+  home.username = "dzmitriy";
+  home.homeDirectory = "/Users/dzmitriy";
   xdg.enable = true;
 
-  home.file.".zshrc".force = true;
   home.stateVersion = "23.11";
 
   programs = {
@@ -17,5 +16,14 @@
 
     tmux = import ./tmux.nix { inherit pkgs; };
     fzf = import ./fzf.nix { inherit pkgs; };
+    gpg = import ./gpg.nix {
+      inherit pkgs;
+      home = config.home;
+    };
   };
+
+#  imports = [
+#    ./yabai/yabai.nix
+#    ./skhd/skhd.nix
+#  ];
 }
