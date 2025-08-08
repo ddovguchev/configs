@@ -55,4 +55,4 @@ section "Talos Installation Complete"
 step "Talos installed to ${TARGET_DISK}"
 
 echo -e "\n${BOLD}${CYAN}[→] Rebooting now...${NC}"
-reboot
+# reboot
