@@ -1,0 +1,27 @@
+# Stylua configuration file
+# https://github.com/JohnnyMorganz/StyLua
+
+# Line ending style
+line_endings = "Unix"
+
+# Indent style
+indent_type = "Spaces"
+indent_width = 2
+
+# Quote style
+quote_style = "AutoPreferDouble"
+
+# Call parentheses
+call_parentheses = "Always"
+
+# Collapse simple statement
+collapse_simple_statement = "Never"
+
+# Column width
+column_width = 120
+
+# Sort requires
+sort_requires = { enabled = true }
+
+# Space after function names
+space_after_function_names = "Always" 
