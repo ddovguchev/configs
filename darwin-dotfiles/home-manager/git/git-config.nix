@@ -2,7 +2,7 @@
 
 let
   users = import modules/git-users.nix;
-  user = users.dzmitry;
+  user = users.hdzmitry;
 in
 {
   enable = true;
